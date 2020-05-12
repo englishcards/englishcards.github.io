@@ -47,7 +47,7 @@ a {
 	flex-wrap: wrap;
 	justify-content: flex-start;
 	align-items: center;
-	padding: 10px;
+	padding: 10px 0;
 }
 .header__img {
 	width: 50px;
@@ -60,8 +60,8 @@ a {
 	font-weight: 700;
 }
 .header__link {
-	width: 45px;
-	height: 45px;
+	width: 35px;
+	height: 35px;
 	margin-left: auto;
 	background: url(img_main/arrow.svg) no-repeat;
 	transform: rotate(-180deg);
@@ -193,7 +193,7 @@ hr {
 }
 .writing__input {
 	display: block;
-	width: 230px;
+	width: 70%;
 	margin: 20px auto 15px;
 	padding: 7px 5px 7px 12px;
 	border: 1px solid #b105ff;
@@ -216,11 +216,11 @@ hr {
 .writing__btn {
 	position: absolute;
 	top: 50%;
-	right: 5px;
-	width: 45px;
+	right: 0%;
+	width: 35px;
 	height: 40px;
 	border: none;
-	background: url(img_main/arrow-input.svg) 25% 60% no-repeat;
+	background: url(img_main/arrow-input.svg) 0% 60% no-repeat;
 	background-size: 75% 75%;
 	transform: translateY(-50%);
 	cursor: pointer;
