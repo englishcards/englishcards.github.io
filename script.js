@@ -1,3 +1,9 @@
+const boxEngRu = document.querySelector('.box-eng');
+const boxRuEng = document.querySelector('.box-ru');
+const boxTest = document.querySelector('.box-test');
+const boxWriting = document.querySelector('.box-writing');
+
+const wordImg = document.querySelectorAll('.img-wrap');
 const wordRu = document.querySelectorAll('.word__title_ru');
 const wordEng = document.querySelectorAll('.word__title_eng');
 const wordVoice = document.querySelectorAll('.word__voice');
@@ -7,18 +13,63 @@ const writingInput = document.querySelectorAll('.writing__input');
 const writingBtn = document.querySelectorAll('.writing__btn');
 const writingWrap = document.querySelectorAll('.writing-wrap');
 
+
+const testWord = document.querySelectorAll('.answer__word');
+const testCircle = document.querySelectorAll('.answer');
+const testWrap = document.querySelectorAll('.test-wrap');
+
+
 const wordSection = document.querySelectorAll('.word-section');
+let currentVar = 0;
 
-
-function openWord(arr, elem) {
+function openArr(arr) {
 	for(let number in arr) {
-		wordRu[elem].style.display = 'block';
-		arr[elem].classList.toggle('hidden');
+		arr[number].style.display = 'block';
+	}
+}
 
-		if (wordWrap[elem].style.display = 'none') {
-			wordVoice[elem].style.display = 'none';
-			wordEng[elem].style.display = 'none';
-		}
+function openArrRu(arr) {
+	for(let number in arr) {
+		arr[number].classList.add('block-important');
+	}
+}
+
+function openAllboxes() {
+	boxEngRu.style.display = 'none';
+	boxRuEng.style.display = 'none';
+	boxTest.style.display = 'none';
+	boxWriting.style.display = 'none';
+	document.querySelector('.word').style.display = 'block';
+	changeSection();
+}
+
+boxEngRu.onclick = () => {
+	currentVar = 1;
+	openAllboxes();
+	openArrRu(document.querySelectorAll('.word__title_ru'));
+}
+
+boxRuEng.onclick = () => {
+	currentVar = 1;
+	openAllboxes();
+}
+
+boxTest.onclick = () => {
+	openAllboxes();
+	openArr(testWrap);
+	closeArr(wordWrap);
+}
+
+boxWriting.onclick = () => {
+	openAllboxes();
+	openArr(writingWrap);
+}
+
+function openWordEng(arr, elem) {
+	for(let number in arr) {
+		wordRu[elem].style.display = 'none';
+		wordEng[elem].style.display = 'block';
+		arr[elem].classList.toggle('hidden');
 	}
 }
 
@@ -26,22 +77,31 @@ function changeSection() {
 	for(let i = 0; wordSection.length > i; i++) {
 		let count = 0;
 
+		if(currentVar === 1) {
+			wordSection[i].style.cursor = 'pointer';
+		}
+		else {
+			wordSection[i].style.cursor = 'default';
+		}
+
 		wordSection[i].onclick = function() {
-			openWord(wordRu, i);
-			openWord(wordEng, i);
-			openWord(wordVoice, i);
-			openWord(wordWrap, i);
+			if(currentVar === 1) {
+				openWordEng(wordRu, i);
+				openWordEng(wordEng, i);
+				openWordEng(wordVoice, i);
+				openWordEng(wordWrap, i);
+			}
 	  	}
 
 		document.querySelector('.word__btn_right').onclick = () =>  {
 			let last = wordSection.length - 1;
 			let previous = count;
-
+			
 			wordSection[count].nextElementSibling.style.display = 'block';
 			wordSection[count].style.display = 'none';
 
 			count++;
-			
+
 			if (count > last) {
 				wordSection[0].style.display = 'block';
 				count = 0;
@@ -66,6 +126,28 @@ function changeSection() {
 					wordSection[count].style.display = 'block';
 				}	
 			}
+		}
+		
+		function passTest() {
+			for(let number in testWord) {
+				testWord[number].onclick = () => {
+					let choice = testWord[number].innerText;
+					let answer = wordEng[count].innerText;
+					if(choice === answer) {
+						testWord[number].parentElement.classList.add('checked');
+						testWord[number].style.backgroundImage = 'none';
+						testWord[number].style.color = '#36b536';
+						wordRu[count].innerText = wordEng[count].innerText;
+					}
+					else {
+						testWord[number].parentElement.classList.add('unchecked');
+						testCircle[number].style.backgroundImage = 'unchecked';
+						testWord[number].style.backgroundImage = 'none';
+						testWord[number].style.color = '#ff4a4a';
+						wordRu[count].innerText = wordEng[count].innerText;
+					}		
+				}					
+			}	
 		}
 
 		function fillInput() {
@@ -104,7 +186,8 @@ function changeSection() {
 		}		
 	}
 
-fillInput();	
+fillInput();
+passTest();
 }
 		
 
@@ -117,6 +200,3 @@ function makeRandomInt(min, max) {
   return counter;
 }
 
-
-
-changeSection();

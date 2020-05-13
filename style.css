@@ -121,7 +121,8 @@ a {
 }
 .type__link::before,
 .type__link_test::before,
-.type__link_pen::before {
+.type__link_pen::before,
+.type__link_learn::before  {
 	position: absolute;
 	content: "";
 	top: 30px;
@@ -130,6 +131,9 @@ a {
 	height: 80px;
 	background: url(img_main/book.svg) no-repeat;
 	transform: translateX(-50%);
+}
+.type__link_learn::before {
+	background: url(img_main/closed-book.svg) no-repeat;
 }
 .type__link_test::before {
 	background: url(img_main/test.svg) no-repeat;
@@ -188,58 +192,42 @@ hr {
 	transform: translateY(-50%);
 }
 .test-list {
-	margin: 10px 0 10px 20px;
+	width: 250px;
+	margin: 10px auto;
 }
 .test-item {
 	margin-bottom: 10px;
 }
+
 .answer {
-	position: relative;
 	display: block;
-	margin-bottom: 7px;
-	padding: 2px 5px 2px 0;
-	font-size: 16px;
-	transition: 0.4s;
-	cursor: pointer;
+	position: relative;
+	padding-left: 15px;
+	background-image: url(img_main/radio-off.svg);
+	background-size: 20px 20px;
+	background-position: 0% 50%;
+	background-repeat: no-repeat;
 }
-.answer {
-	padding-left: 7px;
+.answer__word {
+	position: absolute;
+	top: 50%;
+	left: 0;
+	width: 100%;
+	margin-bottom: 7px;
+	padding: 4px 5px 2px 30px;
+	font-size: 18px;
+	transform: translateY(-50%);
+	cursor: pointer;
 }
 .answer__input {
 	visibility: hidden;
 }	
-.answer__input:checked + .answer__text {
+.answer__input:checked + .answer__word {
 	color: #b105ff;
-}
-.answer__text {
-	display: inline-block;
-	margin-left: 5px;
-}
-.answer__btn {
-	position: absolute;
-	top: 7px;
-	left: 2px;
-	width: 16px;
-	height: 16px;
-	background: url(img_main/radio-off.svg) no-repeat;
-}
-.answer__input:checked + .answer__text > .answer__btn::after   {
-	position: absolute;
-	content: "";
-	top: 50%;
-	left: 50%;
-	width: 8px;
-	height: 8px;
-	border-radius: 50%;
-	background: #b105ff no-repeat;
-	transform: translate(-50%, -50%);
-}
-.answer__circle {
-	position: absolute;
-	top: 7px;
-	left: 2px;
-	width: 16px;
-	height: 16px;
+	background-image: url(img_main/dot.svg);
+	background-size: 10px 10px;
+	background-position: 5px 50%;
+	background-repeat: no-repeat;
 }
 .answer-correct {
 	color: #36b536 !important;
@@ -292,6 +280,9 @@ hr {
 .btn-wrap {
 	display: flex !important;
 	justify-content: center;
+}
+.block-important {
+	display: block !important;
 }
 .word__btn {
 	display: inline-block;
