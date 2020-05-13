@@ -68,9 +68,17 @@ function changeSection() {
 			}
 		}
 
-		function checkInput() {
+		function fillInput() {
 			for(let number in writingBtn) {
-				writingBtn[number].onclick = () => {
+				writingBtn[number].onclick = checkInput;
+				window.addEventListener('keyup', function (e) {
+					e.preventDefault();
+					if (e.keyCode === 13) {
+					    checkInput();
+					  }
+				});
+
+				function checkInput() {
 					let input = writingInput[count].value.toLowerCase();
 					let answer = wordEng[count].innerText.toLowerCase();
 
@@ -96,7 +104,7 @@ function changeSection() {
 		}		
 	}
 
-checkInput();	
+fillInput();	
 }
 		
 
