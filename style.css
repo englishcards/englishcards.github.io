@@ -143,13 +143,14 @@ a {
 .word {
 	padding: 0 0 5px; 
 }
-.word__img {
+.img-wrap {
 	display: block;
 	width: 250px;
 	height: 175px;
 	margin: 20px auto 10px;
 	border: 2px solid #b105ff;
 	border-radius: 8px;
+	overflow: hidden;
 }
 .word__title,
 .word__voice {

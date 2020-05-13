@@ -26,7 +26,6 @@ function changeSection() {
 	  	}
 
 		document.querySelector('.word__btn_right').onclick = () =>  {
-
 			let last = wordSection.length - 1;
 
 			wordSection[count].nextElementSibling.style.display = 'block';
@@ -39,9 +38,40 @@ function changeSection() {
 				count = 0;
 			}
 		}
+
+		document.querySelector('.word__btn_left').onclick = () =>  {
+			let last = wordSection.length - 1;
+			let previous = count;
+			wordSection[count].style.display = 'none';
+
+			changeRandom();
+
+			function changeRandom() {
+				count = makeRandomInt(0, last);
+
+				if(count == previous) {
+					count = makeRandomInt(0, last);
+					changeRandom();
+				}
+				else {
+					wordSection[count].style.display = 'block';
+				}	
+			}
+		}	
 	}
 }
 		
+
+function makeRandomInt(min, max) {
+  let rand = min - 0.5 + Math.random() * (max - min + 1);
+  let counter =  Math.round(rand);
+  if (counter == -0) {
+  	counter = 0;
+  }
+  return counter;
+}
+
+
 				
 
 changeSection();
