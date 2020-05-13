@@ -260,7 +260,7 @@ hr {
 	border: 1px solid #b105ff;
 	border-radius: 5px;
 	color: #3f3f3f;
-	font: 400 16px/26px Raleway, Arial, Helvetica, sans-serif;
+	font: 400 18px/26px Raleway, Arial, Helvetica, sans-serif;
 }
 .writing__input::-webkit-input-placeholder {
   	color: rgba(63, 63, 63, 0.9);
@@ -281,7 +281,10 @@ hr {
 	width: 35px;
 	height: 40px;
 	border: none;
-	background: url(img_main/arrow-input.svg) 35% 60% no-repeat;
+	background-color: transparent;
+	background-position: 35% 60%;
+	background-image: url(img_main/arrow-input.svg);
+	background-repeat: no-repeat;
 	background-size: 75% 75%;
 	transform: translateY(-50%);
 	cursor: pointer;
@@ -307,4 +310,10 @@ hr {
 }
 .hidden {
 	display: none;
+}
+.checked {
+	background-image: url('img_main/checked.svg');
+}
+.unchecked {
+	background-image: url('img_main/unchecked.svg');
 }
