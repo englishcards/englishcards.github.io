@@ -194,10 +194,13 @@ hr {
 }
 .test-list {
 	width: 250px;
-	margin: 10px auto;
+	margin: 5px auto 0;
 }
 .test-item {
 	margin-bottom: 10px;
+}
+.test-item:last-child {
+	margin-bottom: 0;
 }
 .answer__word {
 	display: block;
