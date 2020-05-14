@@ -15,7 +15,6 @@ const writingWrap = document.querySelectorAll('.writing-wrap');
 
 
 const testWord = document.querySelectorAll('.answer__word');
-const testCircle = document.querySelectorAll('.answer');
 const testWrap = document.querySelectorAll('.test-wrap');
 
 
@@ -134,15 +133,14 @@ function changeSection() {
 					let choice = testWord[number].innerText;
 					let answer = wordEng[count].innerText;
 					if(choice === answer) {
-						testWord[number].parentElement.classList.add('checked');
-						testWord[number].style.backgroundImage = 'none';
+						testWord[number].style.backgroundImage = 'checked';
+						testWord[number].classList.add('checked');
 						testWord[number].style.color = '#36b536';
 						wordRu[count].innerText = wordEng[count].innerText;
 					}
 					else {
-						testWord[number].parentElement.classList.add('unchecked');
-						testCircle[number].style.backgroundImage = 'unchecked';
-						testWord[number].style.backgroundImage = 'none';
+						testWord[number].style.backgroundImage = 'unchecked';
+						testWord[number].classList.add('unchecked');
 						testWord[number].style.color = '#ff4a4a';
 						wordRu[count].innerText = wordEng[count].innerText;
 					}		
@@ -190,7 +188,6 @@ fillInput();
 passTest();
 }
 		
-
 function makeRandomInt(min, max) {
   let rand = min - 0.5 + Math.random() * (max - min + 1);
   let counter =  Math.round(rand);
