@@ -199,7 +199,8 @@ hr {
 .test-item {
 	margin-bottom: 10px;
 }
-.test-item:last-child {
+.test-item:last-child,
+.answer__word:last-child {
 	margin-bottom: 0;
 }
 .answer__word {
