@@ -43,9 +43,9 @@ function openAllboxes() {
 }
 
 boxEngRu.onclick = () => {
-	currentVar = 1;
+	currentVar = 2;
 	openAllboxes();
-	openArrRu(document.querySelectorAll('.word__title_ru'));
+	openArrRu(document.querySelectorAll('.word__title_eng'));
 }
 
 boxRuEng.onclick = () => {
@@ -65,10 +65,19 @@ boxWriting.onclick = () => {
 }
 
 function openWordEng(arr, elem) {
-	for(let number in arr) {
-		wordRu[elem].style.display = 'none';
-		wordEng[elem].style.display = 'block';
-		arr[elem].classList.toggle('hidden');
+	if(currentVar === 1) {
+		for(let number in arr) {
+			wordRu[elem].style.display = 'none';
+			wordEng[elem].style.display = 'block';
+			arr[elem].classList.toggle('hidden');
+		}
+	}
+	else if(currentVar === 2) {
+		for(let number in arr) {
+			wordRu[elem].style.display = 'block';
+			wordEng[elem].style.display = 'block';
+			arr[elem].classList.toggle('hidden');
+		}
 	}
 }
 
@@ -84,7 +93,7 @@ function changeSection() {
 		}
 
 		wordSection[i].onclick = function() {
-			if(currentVar === 1) {
+			if(currentVar === 1 || currentVar === 2) {
 				openWordEng(wordRu, i);
 				openWordEng(wordEng, i);
 				openWordEng(wordVoice, i);
@@ -185,7 +194,6 @@ function changeSection() {
 			}
 		}		
 	}
-
 fillInput();
 passTest();
 }
@@ -199,3 +207,10 @@ function makeRandomInt(min, max) {
   return counter;
 }
 
+	let roarElephant = document.querySelector('.header').onclick = soundElephant;
+	function soundElephant() {
+	let audio = new Audio();
+	audio.src = '../cock.mp3';
+	audio.autoplay = true;
+	audio.volume = 0.8;
+}
