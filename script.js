@@ -207,15 +207,12 @@ function makeRandomInt(min, max) {
   return counter;
 }
 
-let t1, t2;
-let start = false;
-const audio = new Audio('cock.mp3');
-audio.loop = true;
-audio.volume = 0.3;
-
-document.querySelector('.header').addEventListener('click', function () {
-    if (start === false) {
-        start = true;
-        audio.play();
-    }
-});
+document.querySelector('.header').onclick = listenAudio;
+function listenAudio {
+	const audio = new Audio('audi/cock.mp3');
+	audio.loop = false;
+	audio.volume = 0.5;
+	document.querySelector('.header').addEventListener('click', function () {
+	    audio.play();
+	});
+}
