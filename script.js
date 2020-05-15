@@ -168,6 +168,7 @@ function changeSection() {
 						writingInput[count].readOnly = true;
 						wordRu[count].innerText = answer;
 						wordRu[count].style.textTransform = 'capitalize';
+						writingInput[count].style.borderColor = '#b105ff';
 					}
 					else if (input == "") {
 						writingInput[count].style.borderColor = '#ff4a4a';
@@ -178,6 +179,7 @@ function changeSection() {
 						writingInput[count].readOnly = true;
 						wordRu[count].innerText = answer;
 						wordRu[count].style.textTransform = 'capitalize';
+						writingInput[count].style.borderColor = '#b105ff';
 					}
 				}
 			}
