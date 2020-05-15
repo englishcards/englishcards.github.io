@@ -208,8 +208,8 @@ function makeRandomInt(min, max) {
 }
 
 document.querySelector('.header').onclick = listenAudio;
-function listenAudio {
-	const audio = new Audio('audi/cock.mp3');
+function listenAudio() {
+	const audio = new Audio('audio/cock.mp3');
 	audio.loop = false;
 	audio.volume = 0.5;
 	document.querySelector('.header').addEventListener('click', function () {
