@@ -177,7 +177,7 @@ a {
 	height: 30px;
 	border: none;
 	background: transparent url(img_main/volume.svg) center center no-repeat;
-	background-size: 80% 80%;
+	background-size: 60% 60%;
 	z-index: 10;
 	cursor: pointer;
 }
