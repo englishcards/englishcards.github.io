@@ -207,9 +207,15 @@ function makeRandomInt(min, max) {
   return counter;
 }
 
-	let roarElephant = document.querySelector('.header').addEventListener('click', function () {
-		let audio = new Audio();
-		audio.src = 'cock.mp3';
-		audio.autoplay = true;
-		audio.volume = 0.8;
+let t1, t2;
+let start = false;
+const audio = new Audio('cock.mp3');
+audio.loop = true;
+audio.volume = 0.3;
+
+document.querySelector('.header').addEventListener('click', function () {
+    if (start === false) {
+        start = true;
+        audio.play();
+    }
 });
