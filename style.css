@@ -157,12 +157,29 @@ a {
 	border-radius: 8px;
 	overflow: hidden;
 }
+.word-wrap {
+	position: relative;
+	z-index: 1;
+}
 .word__title,
 .word__voice {
+	position: relative;
 	display: block;
 	margin: 0 auto 5px;
 	font-size: 20px;
 	text-align: center;
+}
+.audio__btn {
+	position: absolute;
+	top: -2px;
+	right: 25%;
+	width: 30px;
+	height: 30px;
+	border: none;
+	background: transparent url(img_main/volume.svg) center center no-repeat;
+	background-size: 80% 80%;
+	z-index: 10;
+	cursor: pointer;
 }
 .word__voice {
 	margin: 0 auto 5px;

@@ -7,6 +7,7 @@ const wordImg = document.querySelectorAll('.img-wrap');
 const wordRu = document.querySelectorAll('.word__title_ru');
 const wordEng = document.querySelectorAll('.word__title_eng');
 const wordVoice = document.querySelectorAll('.word__voice');
+const audioBtn = document.querySelectorAll('.audio__btn');
 const wordWrap = document.querySelectorAll('.word-wrap');
 
 const writingInput = document.querySelectorAll('.writing__input');
@@ -207,12 +208,18 @@ function makeRandomInt(min, max) {
   return counter;
 }
 
-document.querySelector('.header').onclick = listenAudio;
 function listenAudio() {
-	const audio = new Audio('audio/cock.mp3');
-	audio.loop = false;
-	audio.volume = 0.5;
-	document.querySelector('.header').addEventListener('click', function () {
-	    audio.play();
-	});
+	openArr();
+	function openArr() {
+		for(let number in audioBtn) {
+		const audio = new Audio('audio/cock'+number+'.mp3');
+		audio.loop = false;
+		audio.volume = 0.8;
+			audioBtn[number].addEventListener('click', function (e) {
+				e.stopPropagation();
+			    audio.play();
+			});
+		}
+	}	
 }
+listenAudio();
