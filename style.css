@@ -194,7 +194,7 @@ hr {
 }
 .test-list {
 	width: 250px;
-	margin: 5px auto -5px;
+	margin: 0 auto -5px;
 }
 .test-item {
 	margin-bottom: 10px;
