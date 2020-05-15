@@ -210,7 +210,8 @@ function makeRandomInt(min, max) {
 	let roarElephant = document.querySelector('.header').onclick = soundElephant;
 	function soundElephant() {
 	let audio = new Audio();
-	audio.src = '../cock.mp3';
+	audio.src = 'cock.mp3' 
+	audio.type = 'audio/mpeg';
 	audio.autoplay = true;
 	audio.volume = 0.8;
 }
