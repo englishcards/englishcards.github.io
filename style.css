@@ -165,19 +165,20 @@ a {
 .word__voice {
 	position: relative;
 	display: block;
+	width: 150px;
 	margin: 0 auto 5px;
 	font-size: 20px;
 	text-align: center;
 }
 .audio__btn {
 	position: absolute;
-	top: -1px;
-	right: 25%;
+	top: 2px;
+	right: -30px;
 	width: 30px;
-	height: 30px;
+	height: 25px;
 	border: none;
-	background: transparent url(img_main/volume.svg) center center no-repeat;
-	background-size: 60% 60%;
+	background: transparent url(img_main/volume.svg) 0% 35% no-repeat;
+	background-size: 55% 55%;
 	z-index: 10;
 	cursor: pointer;
 }
