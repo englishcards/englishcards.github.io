@@ -413,6 +413,9 @@ hr {
 	.word__example {
 		font-size: 15px;
 	}
+	.word-wrap {
+		width: 320px;
+	}
 	.word__item_text {
 		font-size: 16px;
 	}
@@ -442,6 +445,9 @@ hr {
 	.collection__link_mix::before {
 		width: 40px;
 		height: 40px;
+	}
+	.word-wrap {
+		width: 350px;
 	}
 	.word__btn {
 		width: 150px;
