@@ -86,7 +86,7 @@ function changeSection() {
 	for(let i = 0; wordSection.length > i; i++) {
 		let count = 0;
 
-		if(currentVar === 1) {
+		if(currentVar === 1 || currentVar === 2) {
 			wordSection[i].style.cursor = 'pointer';
 		}
 		else {
