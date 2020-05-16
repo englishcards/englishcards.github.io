@@ -163,16 +163,27 @@ a {
 	padding: 0 0 5px; 
 }
 .img-wrap {
+	position: relative;
 	display: block;
 	width: 250px;
 	height: 175px;
-	margin: 0 auto 10px;
+	margin: 0 auto;
 	border: 2px solid #b105ff;
 	border-radius: 8px;
 	overflow: hidden;
 }
+.word__img {
+	position: absolute;
+	width: 80%;
+	height: 80%;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%,-50%);
+}
 .word-wrap {
 	position: relative;
+	width: 80%;
+	margin: 0 auto;
 	z-index: 1;
 }
 .word__title,
@@ -186,6 +197,10 @@ a {
 }
 .word__title__eng {
 	width: 130px;
+}
+.word__title_ru,
+.word__voice {
+	width: 100%;
 }
 .audio__btn {
 	position: absolute;
@@ -346,10 +361,6 @@ hr {
 	}
 	.type__item {
 		width: 68%;
-	}
-	.word-wrap {
-		width: 80%;
-		margin: 0 auto;
 	}
 	.writing__btn {
 		right: 2%;
