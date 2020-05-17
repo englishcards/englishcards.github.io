@@ -214,7 +214,7 @@ function listenAudio() {
 		for(let number in audioBtn) {
 		const audio = new Audio('audio/'+number+'.mp3');
 		audio.loop = false;
-		audio.volume = 0.8;
+		audio.volume = 1;
 			audioBtn[number].addEventListener('click', function (e) {
 				e.stopPropagation();
 			    audio.play();
