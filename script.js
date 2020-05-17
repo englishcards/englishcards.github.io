@@ -86,7 +86,7 @@ function changeSection() {
 	for(let i = 0; wordSection.length > i; i++) {
 		let count = 0;
 
-		if(currentVar === 1) {
+		if(currentVar === 1 || currentVar === 2) {
 			wordSection[i].style.cursor = 'pointer';
 		}
 		else {
@@ -212,7 +212,7 @@ function listenAudio() {
 	openArr();
 	function openArr() {
 		for(let number in audioBtn) {
-		const audio = new Audio('audio/cock'+number+'.mp3');
+		const audio = new Audio('audio/'+number+'.mp3');
 		audio.loop = false;
 		audio.volume = 0.8;
 			audioBtn[number].addEventListener('click', function (e) {
