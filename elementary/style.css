@@ -226,6 +226,7 @@ a {
 	font-size: 18px;
 }
 .word__example {
+	width: 250px;
 	padding: 5px;
 	font-size: 16px;
 	font-style: italic;
@@ -429,11 +430,8 @@ hr {
 	.word__voice {
 		font-size: 19px;
 	}
-	.word__example {
-		font-size: 15px;
-	}
 	.word-wrap {
-		width: 320px;
+		width: 280px;
 	}
 	.word__item_text {
 		font-size: 16px;
@@ -464,9 +462,6 @@ hr {
 	.collection__link_mix::before {
 		width: 40px;
 		height: 40px;
-	}
-	.word-wrap {
-		width: 350px;
 	}
 	.word__btn {
 		width: 150px;
@@ -504,9 +499,6 @@ hr {
 	}
 	.word__voice {
 		margin-bottom: 10px;
-	}
-	.word__example {
-		font-size: 16px;
 	}
 	.word__item_text {
 		font-size: 18px;
