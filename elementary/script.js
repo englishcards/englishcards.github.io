@@ -212,7 +212,7 @@ function listenAudio() {
 	openArr();
 	function openArr() {
 		for(let number in audioBtn) {
-		const audio = new Audio('audio/audio'+number+'.mp3');
+		const audio = new Audio('audio/'+number+'.mp3');
 		audio.loop = false;
 		audio.volume = 0.8;
 			audioBtn[number].addEventListener('click', function (e) {
