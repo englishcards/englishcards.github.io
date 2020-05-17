@@ -112,6 +112,9 @@ a {
 .collection__link_third::before {
 	background-image: url(3/img/3.jpg);
 }
+.collection__link_fourth::before {
+	background-image: url(4/img/13.jpg);
+}
 .collection__list_start {
 	margin-top: 35px;
 }
@@ -181,8 +184,7 @@ a {
 }
 .word__img {
 	position: absolute;
-	width: 60%;
-	height: 80%;
+	max-height: 90%;
 	top: 50%;
 	left: 50%;
 	transform: translate(-50%,-50%);
