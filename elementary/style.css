@@ -127,6 +127,9 @@ a {
 .collection__link_eighth::before {
 	background-image: url(8/img/1.jpg);
 }
+.collection__link_ninth::before {
+	background-image: url(9/img/14.jpg);
+}
 .collection__list_start {
 	margin-top: 35px;
 }
