@@ -68,6 +68,7 @@ a {
 .img-start {
 	display: block;
 	margin: 35px auto 0;
+	width: 40%;
 }
 .collection {
 	padding: 20px 10px;
