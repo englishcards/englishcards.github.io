@@ -102,10 +102,10 @@ a {
 .collection__link_mix::before {
 	background-image: url(../elementary/img_main/bookmark.svg);
 }
-/*.collection__link_second::before {
-	background-image: url(2/img/11.jpg);
+.collection__link_second::before {
+	background-image: url(2/img/19.jpg);
 }
-.collection__link_third::before {
+/*.collection__link_third::before {
 	background-image: url(3/img/3.jpg);
 }
 .collection__link_fourth::before {
