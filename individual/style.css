@@ -105,10 +105,10 @@ a {
 .collection__link_second::before {
 	background-image: url(2/img/19.jpg);
 }
-/*.collection__link_third::before {
-	background-image: url(3/img/3.jpg);
+.collection__link_third::before {
+	background-image: url(3/img/15.jpg);
 }
-.collection__link_fourth::before {
+/*.collection__link_fourth::before {
 	background-image: url(4/img/13.jpg);
 }
 .collection__link_fifth::before {
