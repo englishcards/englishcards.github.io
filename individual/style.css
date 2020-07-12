@@ -117,10 +117,10 @@ a {
 .collection__link_sixth::before {
 	background-image: url(6/img/1.jpg);
 }
-/*.collection__link_seventh::before {
-	background-image: url(7/img/1.jpg);
+.collection__link_seventh::before {
+	background-image: url(7/img/12.jpg);
 }
-.collection__link_eighth::before {
+/*.collection__link_eighth::before {
 	background-image: url(8/img/1.jpg);
 }
 .collection__link_ninth::before {
