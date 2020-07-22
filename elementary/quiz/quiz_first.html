@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Final test</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://fonts.googleapis.com/css?family=Raleway:400,500i&display=swap" rel="stylesheet">
+  <link rel="shortcut icon" href="../img_main/favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  <header id="header">
+    <div class="container">
+      <div class="header">
+        <img class="header__img" src="../img_main/logo.png" alt="Logo">
+        <h1 class="header__title">English cards</h1>
+        <a href="../index.html" class="header__link"></a>
+      </div>
+    </div>
+  </header>
+  <main>
+    <div class="container">
+      <div>
+        <div class="word-section">
+          <span class="progress"></span>
+          <span class="result"></span>
+          <span class="word__title word__title_ru test-title"></span><hr class="test-hr">
+          <div class="test-wrap">
+            <ol class="test-list">
+              <li class="test-item"><span class="answer__word word word-en word-correct"></span></li>
+              <li class="test-item"><span class="answer__word word word-en-wr word-incorrect"></span></li>
+              <li class="test-item"><span class="answer__word word word-en-wr2 word-incorrect"></span></li>
+              <li class="list-disabled" hidden></li>
+            </ol> 
+          </div>
+        </div>
+          <button class="word__btn word__btn_right btn-next">Next</button>
+      </div>
+    </div>
+  </main>
+  <script src="quiz_first.js"></script>
+</body>
+</html>
