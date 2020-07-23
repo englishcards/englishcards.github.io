@@ -5,18 +5,18 @@
 <g>
 	<g id="XMLID_26_">
 		<g>
-			<rect x="75" y="365" style="fill:#F4661E;" width="50" height="50"/>
-			<rect x="75" y="255" style="fill:#F4661E;" width="50" height="50"/>
-			<rect x="75" y="145" style="fill:#F4661E;" width="50" height="50"/>
-			<polygon style="fill:#CCCCCC;" points="420,60 445,120 395,120 			"/>
+			<rect x="75" y="365" style="fill:rgba(177, 5, 255, 0.3);" width="50" height="50"/>
+			<rect x="75" y="255" style="fill:rgba(177, 5, 255, 0.3);" width="50" height="50"/>
+			<rect x="75" y="145" style="fill:rgba(177, 5, 255, 0.3);" width="50" height="50"/>
+			<polygon style="fill:#eee;" points="420,60 445,120 395,120 			"/>
 			<rect x="395" y="400" style="fill:#FFD248;" width="50" height="80"/>
 			<rect x="395" y="120" style="fill:#31C0D8;" width="50" height="280"/>
-			<polygon style="fill:#CCCCCC;" points="350,95 265,95 265,10 			"/>
+			<polygon style="fill:#eee;" points="350,95 265,95 265,10 			"/>
 			<path style="fill:#FFFFFF;" d="M350,95v385H10V10h255v85H350z M125,415v-50H75v50H125z M125,305v-50H75v50H125z M125,195v-50H75
 				v50H125z"/>
 		</g>
 		<g>
-			<path d="M357.071,87.929l-85-85c-1.912-1.912-4.47-2.904-7.071-2.905V0H10C4.477,0,0,4.477,0,10v470c0,5.523,4.477,10,10,10h340
+			<path fill="#3f3f3f" d="M357.071,87.929l-85-85c-1.912-1.912-4.47-2.904-7.071-2.905V0H10C4.477,0,0,4.477,0,10v470c0,5.523,4.477,10,10,10h340
 				c5.523,0,10-4.477,10-10V95h-0.024C359.975,92.399,358.983,89.841,357.071,87.929z M275,34.142L325.858,85H275V34.142z M20,470
 				V20h235v75c0,5.523,4.477,10,10,10h75v365H20z"/>
 			<path d="M470,235v155h-15V120h-0.012c0-1.302-0.242-2.609-0.757-3.846l-25-60C427.678,52.427,424.037,50,420,50
