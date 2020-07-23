@@ -141,7 +141,7 @@ function makeTest() {
   }
 }  
 
-let wordEng = ['Camera', 'Mobile phone', 'Shampoo', 'Diary', 'Passport'];
-let wordRu = ['Фотоаппарат', 'Мобильный телефон', 'Шампунь', 'Дневник', 'Паспорт'];
+let wordEng = ['Camera', 'Mobile phone', 'Shampoo', 'Diary', 'Passport', 'Magazine', 'Credit card', 'Headphones', 'Newspaper', 'Sweater', 'Sunglasses', 'Watch', 'Purse', 'Ticket', 'Laptop', 'Postcard', 'Apple juice', 'Battery', 'Single ticket', 'Return ticket', 'Coffee', 'Sandwich', 'Souvenir', 'Have', 'Read', 'Listen to', 'Do', 'Eat', 'Play', 'Go', 'Speak', 'Meet', 'Get up', 'Go to bed', 'Have breakfast', 'Have lunch', 'Get home', 'Start work', 'Leave home', 'Finish work', 'Have dinner', 'Wife husband', 'Brother sister', 'Father', 'Children', 'Mother', 'Daughter', 'Son', 'Grandmother grandfather', 'Parents', 'Aunt', 'Uncle', 'Cousin', 'Interesting', 'Boring', 'Intelligent', 'Stupid', 'Kind', 'Unkind', 'Talkative', 'Quiet', 'Friendly', 'Unfriendly', 'Funny', 'Serious', 'Great'];
+let wordRu = ['Фотоаппарат', 'Мобильный телефон', 'Шампунь', 'Дневник', 'Паспорт', 'Журнал', 'Банковская карта', 'Наушники', 'Газета', 'Свитер', 'Солнцезащитные очки', 'Наручные часы', 'Кошелёк', 'Билет', 'Ноутбук', 'Открытка', 'Яблочный сок', 'Батарейка', 'Билет в одну сторону', 'Обратный билет', 'Кофе', 'Бутерброд', 'Сувенир', 'Иметь', 'Читать', 'Слушать', 'Делать', 'Есть', 'Играть', 'Идти/Ехать', 'Говорить', 'Встретить', 'Вставать', 'Идти спать', 'Завтракать', 'Обедать', 'Приходить домой', 'Начинать работу', 'Выходить из дома', 'Заканчивать работу', 'Ужинать', 'Жена и муж', 'Брат и сестра', 'Отец', 'Дети', 'Мать', 'Дочь', 'Сын', 'Бабушка и дедушка', 'Родители', 'Тётя', 'Дядя', 'Двоюродный брат/сестра', 'Интересный', 'Скучный', 'Умный', 'Глупый', 'Добрый', 'Недобрый', 'Разговорчивый', 'Тихий', 'Дружелюбный', 'Недружелюбный', 'Смешной', 'Серьёзный', 'Замечательно'];
 
 makeTest();
