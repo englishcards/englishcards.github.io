@@ -114,6 +114,11 @@ a {
 	background-position: 58% 50%;
 	background-size: 70% 70%;
 }
+.collection__link_final::before {
+	background-image: url(img_main/cup.svg);
+	background-position: 58% 50%;
+	background-size: 70% 70%;
+}
 .collection__link_second::before {
 	background-image: url(2/img/11.jpg);
 }
@@ -487,7 +492,8 @@ hr {
 	background-color: #fff;
 	transform: translateX(-50%);
 }
-.modal-window_baloon::before {
+.modal-window_baloon::before,
+.modal-window_cup::before {
 	position: absolute;
 	content: "";
 	top: 140px;
@@ -499,7 +505,8 @@ hr {
 	animation-fill-mode: none;
 	animation-fill-mode: forwards;
 }
-.modal-window_baloon::after {
+.modal-window_baloon::after,
+.modal-window_cup::after {
     position: absolute;
     content: "";
     top: 140px;
@@ -510,6 +517,14 @@ hr {
     animation: moveUp linear 2s;
     animation-fill-mode: none;
     animation-fill-mode: forwards;
+}
+.modal-window_cup::before,
+.modal-window_cup::after {
+	top: 65px;
+	width: 32px;
+    height: 32px;
+	background: url(img_main/cup.svg) no-repeat;
+	animation: none;
 }
 .test-modal__text {
 	font-size: 18px;
