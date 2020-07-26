@@ -123,10 +123,10 @@ a {
 .collection__link_eighth::before {
 	background-image: url(8/img/11.jpg);
 }
-/*.collection__link_ninth::before {
-	background-image: url(9/img/14.jpg);
+.collection__link_ninth::before {
+	background-image: url(9/img/18.jpg);
 }
-.collection__link_tenth::before {
+/*.collection__link_tenth::before {
 	background-image: url(10/img/1.jpg);
 }
 .collection__link_eleventh::before {
