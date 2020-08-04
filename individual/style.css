@@ -132,10 +132,11 @@ a {
 	background-image: url(10/img/18.jpg);
 	background-size: 95% 95%;
 }
-/*.collection__link_eleventh::before {
-	background-image: url(11/img/1.jpg);
+.collection__link_eleventh::before {
+	background-image: url(11/img/13.jpg);;
+	background-position: 95% 0%;
 }
-.collection__link_twelfth::before {
+/*.collection__link_twelfth::before {
 	background-image: url(12/img/2.jpg);
 }*/
 .collection__link_quick::before {
