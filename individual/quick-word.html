@@ -9,6 +9,7 @@
   <link rel="stylesheet" href="style.css">
   <style>
     .word-section {
+      position: relative;
       margin-top: 30px;
     }
     .word__title {
@@ -22,8 +23,60 @@
       display: none;
       margin-top: 10px;
     }
-    .hidden {
+    .switch__lang {
+      position: absolute;
+      top: 0;
+      right: 0;
+      z-index: 5;
+    }
+    .switch__lang_active {
+      color: #b105ff;
+      font-weight: 700;
+      cursor: default;
+    }
+    .switch__lang_inactive {
+      color: rgba(63,63,63,0.5);
+      font-weight: 400;
+      cursor: pointer;
+    }
+    .counter-wrap {
+      position: absolute;
+      top: 25px;
+      left: 0;
+      color: rgba(63,63,63,0.8);
+    }
+    .img-end {
       display: block;
+      margin: 0 auto;
+      width: 240px;
+    }
+    .set-list {
+      position: absolute;
+      z-index: 5;
+      top: 0;
+      left: 0;
+      min-width: 120px; 
+      max-height: 150px;
+      background: #fff;
+      overflow-y: auto;
+    }
+    .set-item {
+      display: none;
+      transition: 0.4s;
+    }
+    .set-item:hover {
+      color: #b105ff;
+    }
+    .set-item_chosen {
+      display: block;
+      color: #b105ff;
+      font-weight: 700;
+    }
+    .show {
+      display: block;
+    }
+    .hidden {
+      display: none;
     }
   </style>
 </head>
@@ -41,33 +94,139 @@
     <div class="container">
       <div>
         <div class="word-section">
-          <span class="word__title quick-title"></span>
-          <span class="word__title quick-translation"></span>
+          <div class="set-list">
+            <span class="set-item_chosen"></span>
+            <ul>
+              <li class="set-item set-item_unchosen">All</li>
+              <li class="set-item set-item_unchosen">Set-1</li>
+              <li class="set-item set-item_unchosen">Set-2</li>
+              <li class="set-item set-item_unchosen">Set-3</li>
+              <li class="set-item set-item_unchosen">Set-4</li>
+              <li class="set-item set-item_unchosen">Set-5</li>
+              <li class="set-item set-item_unchosen">Set-6</li>
+            </ul>
+          </div>
+          <span class="switch__lang">
+            <span class="switch__lang_eng switch__lang_active">Eng</span> / <span class="switch__lang_ru switch__lang_inactive">Ru</span>
+          </span>
+          <span class="counter-wrap">
+            <span class="counter"></span> / <span class="counter-all"></span>
+          </span>
+          <span class="word__title quick-title word-wrap"></span>
+            <span class="word__title quick-translation"></span>
         </div>
           <button class="word__btn quick-eng__btn">Next</button>
       </div>
     </div>
   </main>
   <script>
-    const allWordsEng = ['Carol', 'How come?', 'Go caroling', 'Recall', 'Recall', 'Carol', 'Straighten out', 'Assemble', 'Get rid of', 'Forge', 'Forge', 'Falsify', 'In person', 'Sue', 'Chuckle', 'Giggle', 'My condolence', 'Put behind bars', 'Smother', 'Suffocate', 'Fishy', 'Superficial', 'Suffocation', 'Strangle', 'Coward', 'Brew', 'Convicted', 'Convicted on fraud charges', 'Convicted of doing something ', 'See off', 'Pathetic', 'Do it on purpose', 'Milk a cow', 'Do pull-ups', 'Do squats', 'Squat', 'Lift weights', 'Do yoga', 'Diaper', 'Nappy', 'Look on the bright side', 'Make yourself at home', 'Slur', 'Slur', 'Get hectic', 'Anticipate', 'Expect', 'Formerly', 'Former', 'Go over', 'Review', 'Look over', 'Read up on', 'Call on', 'Call on', 'Call on', 'Moving on', 'Turn in', 'Turn in', 'It\'s a matter of life and death', 'it\'s a matter of custom', 'It is only a matter of time', 'Atomic bomb', 'Psychiatry', 'Psychiatrist', 'Psychology', 'Psychologist', 'Swell', 'Swell', 'Rattle', 'Rattle', 'Rattlesnake ', 'Incline', 'Incline', 'Mold', 'Mold', 'Fuzzy', 'Fuzzy', 'Blurred', 'Stroke', 'Stroke', 'Бактерия', 'Sufficient', 'Insufficient', 'Manufacture', 'Suppress', 'Suppress tears (yawn)', 'Suppress laughter ', 'Essentially', 'Essential ', 'Pave the way', 'Pave', 'Immune system', 'Immunity', 'Quarantine', 'Lockdown', 'Corpse', 'Dead body', 'Overuse', 'Lifespan', 'Span', 'Pneumonia', 'Tickle', 'Wink at', 'Blink', 'Pervert', 'Pervert', 'Use bad language', 'Swear at', 'Swear', 'Chew', 'Skull', 'Snap out of it', 'Snap', 'Snap', 'Affect', 'Affect smb. deeply', 'Effect ', 'Impact', 'Influence ', 'Job hunter', 'Slap', 'Slap', 'Punch', 'Intimidate', 'Threaten', 'Commitment', 'Obligation', 'Job hunting', 'Не падай духом, взбодрись', 'Get emotions under control', 'Profanity', 'Obscenity', 'Сurse', 'Сurse', 'Blasphemy', 'Yell at', 'Scream', 'Shout', 'Promising', 'Rapidly', 'Fast', 'Fast', 'Quick ', 'Decline', 'Decline', 'Reduce', 'Decrease', 'Endurance', 'Stamina', 'Endorsement', 'Inappropriate', 'Inappropriate jest (joke) ', 'Harmless jest ', 'Limp', 'Limp', 'Limp handshake', 'Quarry', 'Limestone', 'Granite', 'Resent', 'Sip', 'Sip', 'Beverage', 'Drink', 'Play along with', 'Dildo', 'Ruin', 'Ruin', 'Mayor', 'Brutal', 'Сruel', 'Mosque', 'Balm', 'Balm to', 'Precision', 'Accurate ', 'Pedant ', 'Precise', 'Shitty', 'Smear', 'Be entitled to', 'Entitle', 'Pensioner', 'Mayo', 'Sauce', 'Mustard', 'Conviction', 'Conviction', 'Invincible', 'Vice president', 'Vice', 'Commute', 'Commute', 'Commute', 'Death sentence', 'Can of worms', 'Blurt out', 'Compelling', 'Compelling', 'Novel', 'Summary', 'Survey', 'Сonduct/carry out/do a survey', 'Filthy', 'Tablecloth', 'Cologne', 'Deodorant', 'Perfume', 'Leftovers', 'Dent', 'Dent', 'Sob', 'Burp', 'Comb the hair', 'Comb', 'Sloppy', 'Sloppy', 'Careless', 'Neglect', 'Humiliating', 'Humiliation ', 'Humiliate', 'Bear the humiliation', 'Badmouth', 'Savings', 'Sympathize with', 'Sympathy', 'Compassion', 'Feel sorry for', 'Participate', 'Take part', 'Instant', 'Instant', 'Instantly', 'For an instant', 'Instant', 'Chores', 'Chore', 'Protest', 'Full stop', 'Full stop', 'Period', 'Period', 'Prosperity', 'Dot', 'Point [pɔɪnt]', 'Point', 'Stuffy', 'Stuffy', 'Stifling', 'Stickler for', 'Accuracy', 'Efficiency', 'Neat', 'Ambiguous', 'Vague', 'Obscure', 'Obscure', 'Little red riding hood', 'Paragraph', 'Pause', 'Pause', 'Colon', 'Appoint(as)', 'Assign', 'Assign', 'Designate', 'Promote', 'Promoted to', 'Division ', 'Associate', 'Associate', 'Associate oneself with smth', 'Coworker', 'Consistent', 'Consistent with smth', 'Persistent', 'Consecutive ', 'Constantly', 'Persuasive', 'Convincing', 'Convince', 'Persuade', 'Recent research', 'Investigation', 'Irony', 'Emoticon', 'Semicolon', 'Parenthesis', 'Designed', 'Intend', 'Destined', 'Intent', 'Intention', 'Tend to', 'Work out', 'Intense', 'Intensive', 'Tense', 'Admit', 'Confess to doing smth', 'Acknowledge', 'Сheat on the exam', 'Cheat on', 'Adore', 'Admire ', 'Worship', 'Appreciate', 'Grateful', 'Thankful', 'Value', 'Appraise', 'Avoid', 'Evade', 'Avert', 'Avert', 'Crisis', 'Can\'t help', 'Can\’t stand', 'Can\'t bear ', 'Withstand (withstood, withstood)', 'Carry on', 'Complete', 'Accomplish', 'Achieve', 'Consider', 'Consider', 'Regard', 'Contemplate', 'Deem', 'Delay', 'Delay in', 'Deny', 'Refuse', 'Decline', 'Reject', 'Despise', 'Loathe', 'Disgust', 'Detest', 'Contempt', 'Disdain', 'Scorn', 'Discuss', 'Debate', 'Enjoy', 'Revel', 'Escape', 'Run away', 'Flee (fled, fled)', 'Fancy', 'Fancy', 'Feel like', 'Finish', 'Terminate', 'Give up', 'Surrender', 'Give in', 'Go on', 'Politician', 'Imagine', 'Envision', 'To be involved in', 'Include', 'Keep on', 'Keep ... to', 'Go ahead', 'Keep up', 'Look forward to', 'Mention', 'Mind', 'Don\'t mind', 'Never mind', 'Miss', 'Put off', 'Postpone', 'Practice', 'Training', 'Exercise', 'Rehearsal', 'Waste of time', 'Squander', 'Quit', 'Exit', 'Lay off', 'Leave', 'Resign from', 'Dismiss', 'Fire', 'Recall', 'Remember', 'Recommend', 'Commend', 'Resist', 'Object to doing', 'Risk', 'Suggest', 'Tolerate', 'Endure', 'Understand', 'Burst out', 'To be accustomed to', 'To be used to ', 'Get used to', 'To be addicted to', 'Бояться', 'To be anxious about', 'To be bored with', 'To be capable of', 'To be concerned about', 'To be content with', 'To be satisfied with', 'To be devoted to', 'Dedicated to', 'Contribute to', 'To be busy', 'Knit', 'Afraid of flying/heights/spiders ', 'Capable of standing up for myself', 'Charity', 'To be disappointed with', 'Be disappointed in', 'Upset', 'Frustrated', 'To be discouraged by', 'Discourage from', 'Encourage', 'To be excited about', 'Nervous', 'Thrilled', 'Arouse', 'Amusement park', 'To be famous for', 'Popular', 'Well-known ', 'Famed', 'To be fond of', 'Keen on ', 'Cabbage ', 'To be frightened of', 'Be terrified of', 'Horrified', 'Startle', 'Twitch', 'To be guilty of', 'Be found guilty', 'Be accused of', 'Blame on', 'Fault', 'Screwed up', 'Possessing drugs', 'Treason', 'Rape', 'Happy about', 'Delighted with/by/at', 'Glad', 'Fortunate', 'Pleased with ', 'To be interested in', 'Curious', 'It’s not worth', 'Worthless', 'Deserve', 'Worthwhile', 'Valuable', 'Antique'];
+    const allWordsMainEng = ['Carol', 'How come?', 'Go caroling', 'Recall', 'Recall', 'Carol', 'Straighten out', 'Assemble', 'Get rid of', 'Forge', 'Forge', 'Falsify', 'In person', 'Sue', 'Chuckle', 'Giggle', 'My condolence', 'Put behind bars', 'Smother', 'Suffocate', 'Fishy', 'Superficial', 'Suffocation', 'Strangle', 'Coward', 'Brew', 'Convicted', 'Convicted on fraud charges', 'Convicted of doing something ', 'See off', 'Pathetic', 'Do it on purpose', 'Milk a cow', 'Do pull-ups', 'Do squats', 'Squat', 'Lift weights', 'Do yoga', 'Diaper', 'Nappy', 'Look on the bright side', 'Make yourself at home', 'Slur', 'Slur', 'Get hectic', 'Anticipate', 'Expect', 'Formerly', 'Former', 'Go over', 'Review', 'Look over', 'Read up on', 'Call on', 'Call on', 'Call on', 'Moving on', 'Turn in', 'Turn in', 'It\'s a matter of life and death', 'it\'s a matter of custom', 'It is only a matter of time', 'Atomic bomb', 'Psychiatry', 'Psychiatrist', 'Psychology', 'Psychologist', 'Swell', 'Swell', 'Rattle', 'Rattle', 'Rattlesnake ', 'Incline', 'Incline', 'Mold', 'Mold', 'Fuzzy', 'Fuzzy', 'Blurred', 'Stroke', 'Stroke', 'Бактерия', 'Sufficient', 'Insufficient', 'Manufacture', 'Suppress', 'Suppress tears (yawn)', 'Suppress laughter ', 'Essentially', 'Essential ', 'Pave the way', 'Pave', 'Immune system', 'Immunity', 'Quarantine', 'Lockdown', 'Corpse', 'Dead body', 'Overuse', 'Lifespan', 'Span', 'Pneumonia', 'Tickle', 'Wink at', 'Blink', 'Pervert', 'Pervert', 'Use bad language', 'Swear at', 'Swear', 'Chew', 'Skull', 'Snap out of it', 'Snap', 'Snap', 'Affect', 'Affect smb. deeply', 'Effect ', 'Impact', 'Influence ', 'Job hunter', 'Slap', 'Slap', 'Punch', 'Intimidate', 'Threaten', 'Commitment', 'Obligation', 'Job hunting', 'Не падай духом, взбодрись', 'Get emotions under control', 'Profanity', 'Obscenity', 'Сurse', 'Сurse', 'Blasphemy', 'Yell at', 'Scream', 'Shout', 'Promising', 'Rapidly', 'Fast', 'Fast', 'Quick ', 'Decline', 'Decline', 'Reduce', 'Decrease', 'Endurance', 'Stamina', 'Endorsement', 'Inappropriate', 'Inappropriate jest (joke) ', 'Harmless jest ', 'Limp', 'Limp', 'Limp handshake', 'Quarry', 'Limestone', 'Granite', 'Resent', 'Sip', 'Sip', 'Beverage', 'Drink', 'Play along with', 'Dildo', 'Ruin', 'Ruin', 'Mayor', 'Brutal', 'Сruel', 'Mosque', 'Balm', 'Balm to', 'Precision', 'Accurate ', 'Pedant ', 'Precise', 'Shitty', 'Smear', 'Be entitled to', 'Entitle', 'Pensioner', 'Mayo', 'Sauce', 'Mustard', 'Conviction', 'Conviction', 'Invincible', 'Vice president', 'Vice', 'Commute', 'Commute', 'Commute', 'Death sentence', 'Can of worms', 'Blurt out', 'Compelling', 'Compelling', 'Novel', 'Summary', 'Survey', 'Сonduct/carry out/do a survey', 'Filthy', 'Tablecloth', 'Cologne', 'Deodorant', 'Perfume', 'Leftovers', 'Dent', 'Dent', 'Sob', 'Burp', 'Comb the hair', 'Comb', 'Sloppy', 'Sloppy', 'Careless', 'Neglect', 'Humiliating', 'Humiliation ', 'Humiliate', 'Bear the humiliation', 'Badmouth', 'Savings', 'Sympathize with', 'Sympathy', 'Compassion', 'Feel sorry for', 'Participate', 'Take part', 'Instant', 'Instant', 'Instantly', 'For an instant', 'Instant', 'Chores', 'Chore', 'Protest', 'Full stop', 'Full stop', 'Period', 'Period', 'Prosperity', 'Dot', 'Point [pɔɪnt]', 'Point', 'Stuffy', 'Stuffy', 'Stifling', 'Stickler for', 'Accuracy', 'Efficiency', 'Neat', 'Ambiguous', 'Vague', 'Obscure', 'Obscure', 'Little red riding hood', 'Paragraph', 'Pause', 'Pause', 'Colon', 'Appoint(as)', 'Assign', 'Assign', 'Designate', 'Promote', 'Promoted to', 'Division ', 'Associate', 'Associate', 'Associate oneself with smth', 'Coworker', 'Consistent', 'Consistent with smth', 'Persistent', 'Consecutive ', 'Constantly', 'Persuasive', 'Convincing', 'Convince', 'Persuade', 'Recent research', 'Investigation', 'Irony', 'Emoticon', 'Semicolon', 'Parenthesis', 'Designed', 'Intend', 'Destined', 'Intent', 'Intention', 'Tend to', 'Work out', 'Intense', 'Intensive', 'Tense', 'Admit', 'Confess to doing smth', 'Acknowledge', 'Сheat on the exam', 'Cheat on', 'Adore', 'Admire ', 'Worship', 'Appreciate', 'Grateful', 'Thankful', 'Value', 'Appraise', 'Avoid', 'Evade', 'Avert', 'Avert', 'Crisis', 'Can\'t help', 'Can\’t stand', 'Can\'t bear ', 'Withstand (withstood, withstood)', 'Carry on', 'Complete', 'Accomplish', 'Achieve', 'Consider', 'Consider', 'Regard', 'Contemplate', 'Deem', 'Delay', 'Delay in', 'Deny', 'Refuse', 'Decline', 'Reject', 'Despise', 'Loathe', 'Disgust', 'Detest', 'Contempt', 'Disdain', 'Scorn', 'Discuss', 'Debate', 'Enjoy', 'Revel', 'Escape', 'Run away', 'Flee (fled, fled)', 'Fancy', 'Fancy', 'Feel like', 'Finish', 'Terminate', 'Give up', 'Surrender', 'Give in', 'Go on', 'Politician', 'Imagine', 'Envision', 'To be involved in', 'Include', 'Keep on', 'Keep ... to', 'Go ahead', 'Keep up', 'Look forward to', 'Mention', 'Mind', 'Don\'t mind', 'Never mind', 'Miss', 'Put off', 'Postpone', 'Practice', 'Training', 'Exercise', 'Rehearsal', 'Waste of time', 'Squander', 'Quit', 'Exit', 'Lay off', 'Leave', 'Resign from', 'Dismiss', 'Fire', 'Recall', 'Remember', 'Recommend', 'Commend', 'Resist', 'Object to doing', 'Risk', 'Suggest', 'Tolerate', 'Endure', 'Understand', 'Burst out', 'To be accustomed to', 'To be used to ', 'Get used to', 'To be addicted to', 'Бояться', 'To be anxious about', 'To be bored with', 'To be capable of', 'To be concerned about', 'To be content with', 'To be satisfied with', 'To be devoted to', 'Dedicated to', 'Contribute to', 'To be busy', 'Knit', 'Afraid of flying/heights/spiders ', 'Capable of standing up for myself', 'Charity', 'To be disappointed with', 'Be disappointed in', 'Upset', 'Frustrated', 'To be discouraged by', 'Discourage from', 'Encourage', 'To be excited about', 'Nervous', 'Thrilled', 'Arouse', 'Amusement park', 'To be famous for', 'Popular', 'Well-known ', 'Famed', 'To be fond of', 'Keen on ', 'Cabbage ', 'To be frightened of', 'Be terrified of', 'Horrified', 'Startle', 'Twitch', 'To be guilty of', 'Be found guilty', 'Be accused of', 'Blame on', 'Fault', 'Screwed up', 'Possessing drugs', 'Treason', 'Rape', 'Happy about', 'Delighted with/by/at', 'Glad', 'Fortunate', 'Pleased with ', 'To be interested in', 'Curious', 'It’s not worth', 'Worthless', 'Deserve', 'Worthwhile', 'Valuable', 'Antique'];
+    const allWordsMainRu = ['Колядка', 'Как так?', 'Колядовать', 'Вспоминать', 'Отзывать', 'Отзывать', 'Приводить в порядок', 'Собирать', 'Избавиться от', 'Подделывать', 'Кузница', 'Подделывать', 'Лично', 'Предъявлять иск', 'Хихикать', 'Хихикать', 'Примите моё соболезнование', 'Посадить за решётку', 'Душить', 'Душить', 'Подозрительно', 'Поверхностный, неглубокий', 'Удушение', 'Удавить', 'Трус', 'Заваривать', 'Осужденный', 'Обвинен в мошенничестве', 'Обвинение за действия', 'Провожать', 'Жалкий', 'Сделать нарочно, специально', 'Доить корову', 'Подтягиваться', 'Делать приседания', 'Сидение на корточках', 'Поднимать штангу', 'Заниматься йогой', 'Подгузник(us)', 'Подгузник(br) ', 'Смотреть на вещи оптимистически', 'Чувствуйте себя как дома', 'Запятнать, испортить репутацию', 'Говорить невнятно', 'Напряженные дни (много всего)', 'Ожидать, ждать с нетерпением', 'Ожидать', 'Прежде', 'Бывший, прежний', 'Повторять, внимательно перечитывать', 'Рассмотрение, пересмотр', 'Просмотреть', 'Углубить свои знания', 'Призывать', 'Вызвать. например, ученика на ответ', 'Навестить', 'Двигаемся дальше', 'Отдавать (сдавать работу в школе)', 'Идти спать', 'Это вопрос жизни и смерти', 'Это вопрос привычки', 'Это только вопрос времени', 'Атомная бомба', 'Психиатрия', 'Психиатр', 'Психология', 'Психолог', 'Раздуваться, набухать', 'Шикарно, замечательно', 'Погремушка', 'Дребезжать', 'Гремучая змея', 'Склоняться', 'Наклоняться', 'Плесень', 'Формировать', 'Неясный', 'Размытый', 'Расплывчатый', 'Гладить', 'Инсульт', 'Бактерия', 'Достаточный', 'Недостаточный', 'Производство, изготовлять', 'Подавлять, пресекать', 'Сдерживать слёзы (зевок)', 'Сдерживать смех', 'По существу, по сути', 'Необходимый', 'Прокладывать путь', 'Вымостить', 'Иммунная система', 'Иммунитет', 'Карантин', 'Строгая изоляция', 'Труп,мертвое тело (мед. термин)', 'Труп', 'Злоупотребление, чрезмерное использовать', 'Продолжительность жизни', 'Охватывать, перекрывать', 'Пневмония', 'Щекотать', 'Подмигивать', 'Моргать', 'Извращенец', 'Извращать', 'Cквернословить, ругаться', 'Ругаться', 'Клясться', 'Жевать, пережевывать', 'Череп', 'Взять себя в руки', 'Внезапно, с шумом, ухватиться быстро', 'Щёлкать', 'Влиять, воздействовать', 'Cильно (глубоко) повлиять', 'Эффект, влияние ', 'Влияние (сильное, глобальное)', 'Влияние, влиять (на мнение, поведение)', 'Тот, кто в поиске работы', 'Пощечина, шлепок', 'Шлёпать', 'Удар кулаком', 'Запугивать', 'Угрожать', 'Обязательство', 'Обязанность', 'Поиски работы', 'Cheer up', 'Держать эмоции под контролем', 'Богохульство, сквернословие', 'Непристойность', 'Проклятие', 'Проклинать', 'Богохульство', 'Кричать на, вопить', 'Визжать', 'Кричать, повышать голос', 'Многообещающий, подающий надежды', 'Быстро (стремительно)', 'Быстрый', 'Быстро', 'Быстрый (по отношению ко времени)', 'Снижаться, уменьшаться', 'Отказ (formal)', 'Уменьшить', 'Уменьшить', 'Выносливость, стойкость', 'Выносливость', 'Подтверждение, согласие', 'Неуместный', 'Неуместная шутка', 'Безобидная шутка', 'Хромать', 'Мягкий, безвольный', 'Слабое рукопожатие', 'Карьер, каменоломня', 'Известняк', 'Гранит', 'Негодовать, возмущаться', 'Попивать', 'Глоток', 'Напиток', 'Напиток', 'Подыгрывать, поддакивать', 'Вибрирующая игрушка', 'Разрушать', 'Руина', 'Мэр', 'Жестокий, зверский', 'Жестокий', 'Мечеть', 'Бальзам', 'Утешение для ', 'Точность', 'Точный', 'Педант', 'Точный, чёткий', 'Дерьмовый', 'Измазать', 'Имеющий право', 'Давать право', 'Пенсионер', 'Майонез', 'Соус, подливка', 'Горчица', 'Судимость', 'Убеждение', 'Непобедимый', 'Вице-президент', 'Порок', 'Поездка на работу и обратно', 'Ездить на работу и обратно', 'Заменять, переключать', 'Смертная казнь', 'Разворошить гнездо (куча неприятностей)', 'Сболтнуть не подумав, проболтаться', 'Убедительный', 'Захватывающий', 'Роман', 'Краткое изложение', 'Обзор, анкетирование', 'Проводить опрос', 'Грязный, мерзкий', 'Скатерть', 'Одеколон', 'Дезодорант', 'Духи', 'Объедки, остатки еды', 'Вмятина', 'Вмять', 'Всхлипывать, громко рыдать', 'Отрыжка', 'Расчёсывать волосы', 'Расчёска', 'Небрежный, неряшливый', 'Мокрый, сырой', 'Небрежный(formal), неосторожный', 'Пренебрегать', 'Унизительный, оскорбительный', 'Унижение', 'Унижать', 'Терпеть унижение', 'Порочить, чернить', 'Сбережения', 'Сочувствовать кому-то', 'Сочувствие', 'Сострадание', 'Сочувствовать кому-либо', 'Принимать участие', 'Принимать участие (не так формально)', 'Мгновение', 'Мгновенный', 'Мгновенно, тотчас', 'На мгновение', 'Растворимый', 'Домашние дела (работа по дому)', 'Скучная рутинная работа', 'Протест', 'Точка (br)', '"Конец разговора"', 'Точка(us)', 'Период', 'Процветание, благосостояние', 'Точка для сайтов', 'Точка для дроби', 'Точка зрения, момент', 'Душный', 'Старомодный', 'Удушающий (очень душный)', 'Приверженец, ярый сторонник', 'Точность, правильность', 'Эффективность', 'Опрятный', 'Двусмысленный, неопределенный', 'Неясный (мало информации)', 'Непонятный, неясный', 'Скрытый, непонятный, неясный', 'Красная Шапочка', 'Параграф, абзац', 'Делать паузу', 'Пауза', 'Двоеточие', 'Назначать (передача должности)', 'Назначать', 'Определять', 'Назначать (официально)', 'Продвигать', 'Получил повышение до (должность)', 'Отдел, разделение', 'Ассоциировать', 'Партнер, компаньон ', 'Связывать себя с', 'Товарищ по работе; коллега', 'Последовательный', 'Ссогласующийся с ', 'Стойкий, постоянный (может поменяться)', 'Непрерывный, последовательный ', 'Постоянно (иногда с негативным подтекстом)', 'Убедительный', 'Убедительный', 'Убеждать, уверять (поменять точку зрения)', 'Убеждать, уверять (побудить к действию)', 'Новейшие исследование', 'Исследование, расследование ', 'Ирония', 'Смайлик', 'Точка с запятой', 'Круглые скобки', 'Спланированный, предназначенный', 'Намереваться (еще думаю об этом)', 'Предназначенный (обреченный судьбой или другим человеком)', 'Намерение, цель (более формально)', 'Намерение, цель (не так формально)', 'Иметь склонность к; иметь тенденцию к', 'Разработать, образовать', 'Напряженный, сильный (больше к чувствам: сильная боль, сильно холодно и т.п.)', 'Интенсивный', 'Напряженный, натянутый (в основном из-за нервов)', 'Признавать', 'Исповедоваться в', 'Признавать, сознавать (акцент на осознать)', 'Списывать на экзамене', 'Изменять', 'Обожать, преклоняться', 'Восхищаться', 'Поклоняться', 'Ценить, высоко ставить', 'Благодарный, признательный', 'Благодарный', 'Ценить, оценивать', 'Оценивать (фидбек о работе, учёбе)', 'Избегать, уклоняться', 'Уклоняться, ускользать', 'Предотвращать', 'Отводить (взгляд)', 'Кризис', 'Ничего не могу поделать', 'Не в состоянии переносить', 'Не переносить ', 'Выдерживать, противостоять', 'Продолжать (что-то делать)', 'Завершать', 'Выполнять, достигать (завершить с успехом)', 'Достигать, добиваться желаемого ', 'Рассматривать, подумывать', 'Считаться, считается', 'Рассматривать, обдумывать (редко)', 'Рассматривать (более внимательно и серьезно)', 'Считать, полагать (правильно или неправильно сделано) ', 'Задержка', 'Задержка с ', 'Отрицать, отказывать', 'Отказываться ', 'Отказывать (более вежливо)', 'Отвергать, отклонять (более резко)', 'Презирать (сильно ненавидеть)', 'Ненавидеть, испытывать отвращение', 'Внушать отвращение, омерзение', 'Ненавидеть', 'Презрение, неуважение', 'Пренебрегать, презирать c надменностью', 'Пренебрежение, пренебрегать', 'Обсуждать', 'Обсуждать (обсуждение разных точек зрения)', 'Наслаждаться, получать удовольствие', 'Упиваться, наслаждаться', 'Совершать побег, убегать', 'Убегать, сбегать', 'Бежать, спасаться бегством (часто сбежать из-за опасности)', 'Нравиться, любить, хотеть', 'Воображать, представлять себе', 'Иметь желание, хотеть (настроение)', 'Заканчивать', 'Завершать (более формальное)', 'Сдаваться, отказываться', 'Сдаваться', 'Уступать, сдаваться, признать (согласиться с чьим-то мнением)', 'Продолжать', 'Политик', 'Вообразить, воображать', 'Представлять себе', 'Вовлекать в', 'Включать ', 'Продолжать', 'Держать для того, чтобы', 'Продолжайте! вперёд! ', 'Держаться на уровне', 'Ожидать с нетерпением, предвкушать', 'Упоминать', 'Возражать', 'Без разницы, всё равно', 'Проехали, забей', 'Скучать, упускать', 'Откладывать, отсрочить', 'Откладывать', 'Практика, практиковать', 'Обучение, подготовка', 'Упражнение, тренироваться ', 'Репетиция ', 'Тратить впустую время', 'Растрачивать, расточать', 'Бросать, покидать, уход с работы', 'Выход выходить', 'Увольнять, сокращать ', 'Покидать, уходить ', 'Увольняться, уходить в отставку ', 'Увольнять, освобождать (увольнение за что-то)', 'Увольнять (за что-то)', 'Вспоминать, припоминать', 'Помнить', 'Рекомендовать, советовать', 'Хвалить, одобрять (формально)', 'Сопротивляться', 'Возражать что-то делать', 'Рисковать', 'Предлагать, советовать', 'Терпеть, допускать', 'Терпеть, вынести', 'Понимать', 'Разразиться, взорваться', 'Привыкать (формально)', 'Привыкать (завершенное)', 'Привыкать (незавершённое)', 'Зависимый, пристрастный', 'To be afraid of', 'Беспокоиться / тревожиться о', 'Скучно что-то делать', 'Способный', 'Обеспокоенный, встревоженный', 'Довольствоваться, быть довольным (чем-то)', 'Удовлетворённый, довольный ', 'Посвящённый, очень преданный', 'Посвященный, увлеченный ', 'Жертвовать для, делать вклад', 'Быть занятым чем-то', 'Вязать', 'Бояться летать/высоты/пауков', 'Постоять за себя', 'Благотворительность', 'Разочароваться из-за', 'Разочароваться в', 'Расстраивать, расстраиваться', 'Расстроенный', 'Удрученный, лишенный воли', 'Отговорить от, препятствовать', 'Поощрять, ободрять', 'Приятно взволноваться', 'Нервный, нервничающий', 'Очень взволнованный', 'Возбуждать, побуждать', 'Парк развлечений', 'Быть известным в чём-то', 'Популярный ', 'Известный, хорошо знакомый', 'Прославленный, известный', 'Любить что-то', 'Интересоваться; увлекаться ', 'Капуста', 'Быть напуганным, испугаться чего-то внезапно', 'Быть в ужасе, сильно бояться', 'Быть шокированным, в ужасе', 'Внезапно испугаться', 'Дёргаться', 'Быть виновным', 'Был признан виновным', 'Быть обвиненным', 'Обвинение, обвинять за', 'Вина, ошибка', 'Испортить, напортачить', 'Хранение наркотиков', 'Измена, предательство', 'Изнасилование', 'Быть счастливым от', 'Восхищенный, в восторге ', 'Довольный, радостный', 'Удачный, счастливый (в плане удачи)', 'Довольный чем-то, удовлетворён (формальное)', 'Быть заинтересованным в', 'Любопытно, любознательный', 'Это не стоит', 'Ничего не стоящий; не имеющий никакой ценности', 'Заслуживать ', 'Стоящий, дельный (стоит это делать и стараться)', 'Ценный, дорогой', 'Антикварная вещь'];
 
-    const allWordsRu = ['Колядка', 'Как так?', 'Колядовать', 'Вспоминать', 'Отзывать', 'Отзывать', 'Приводить в порядок', 'Собирать', 'Избавиться от', 'Подделывать', 'Кузница', 'Подделывать', 'Лично', 'Предъявлять иск', 'Хихикать', 'Хихикать', 'Примите моё соболезнование', 'Посадить за решётку', 'Душить', 'Душить', 'Подозрительно', 'Поверхностный, неглубокий', 'Удушение', 'Удавить', 'Трус', 'Заваривать', 'Осужденный', 'Обвинен в мошенничестве', 'Обвинение за действия', 'Провожать', 'Жалкий', 'Сделать нарочно, специально', 'Доить корову', 'Подтягиваться', 'Делать приседания', 'Сидение на корточках', 'Поднимать штангу', 'Заниматься йогой', 'Подгузник(us)', 'Подгузник(br) ', 'Смотреть на вещи оптимистически', 'Чувствуйте себя как дома', 'Запятнать, испортить репутацию', 'Говорить невнятно', 'Напряженные дни (много всего)', 'Ожидать, ждать с нетерпением', 'Ожидать', 'Прежде', 'Бывший, прежний', 'Повторять, внимательно перечитывать', 'Рассмотрение, пересмотр', 'Просмотреть', 'Углубить свои знания', 'Призывать', 'Вызвать. например, ученика на ответ', 'Навестить', 'Двигаемся дальше', 'Отдавать (сдавать работу в школе)', 'Идти спать', 'Это вопрос жизни и смерти', 'Это вопрос привычки', 'Это только вопрос времени', 'Атомная бомба', 'Психиатрия', 'Психиатр', 'Психология', 'Психолог', 'Раздуваться, набухать', 'Шикарно, замечательно', 'Погремушка', 'Дребезжать', 'Гремучая змея', 'Склоняться', 'Наклоняться', 'Плесень', 'Формировать', 'Неясный', 'Размытый', 'Расплывчатый', 'Гладить', 'Инсульт', 'Бактерия', 'Достаточный', 'Недостаточный', 'Производство, изготовлять', 'Подавлять, пресекать', 'Сдерживать слёзы (зевок)', 'Сдерживать смех', 'По существу, по сути', 'Необходимый', 'Прокладывать путь', 'Вымостить', 'Иммунная система', 'Иммунитет', 'Карантин', 'Строгая изоляция', 'Труп,мертвое тело (мед. термин)', 'Труп', 'Злоупотребление, чрезмерное использовать', 'Продолжительность жизни', 'Охватывать, перекрывать', 'Пневмония', 'Щекотать', 'Подмигивать', 'Моргать', 'Извращенец', 'Извращать', 'Cквернословить, ругаться', 'Ругаться', 'Клясться', 'Жевать, пережевывать', 'Череп', 'Взять себя в руки', 'Внезапно, с шумом, ухватиться быстро', 'Щёлкать', 'Влиять, воздействовать', 'Cильно (глубоко) повлиять', 'Эффект, влияние ', 'Влияние (сильное, глобальное)', 'Влияние, влиять (на мнение, поведение)', 'Тот, кто в поиске работы', 'Пощечина, шлепок', 'Шлёпать', 'Удар кулаком', 'Запугивать', 'Угрожать', 'Обязательство', 'Обязанность', 'Поиски работы', 'Cheer up', 'Держать эмоции под контролем', 'Богохульство, сквернословие', 'Непристойность', 'Проклятие', 'Проклинать', 'Богохульство', 'Кричать на, вопить', 'Визжать', 'Кричать, повышать голос', 'Многообещающий, подающий надежды', 'Быстро (стремительно)', 'Быстрый', 'Быстро', 'Быстрый (по отношению ко времени)', 'Снижаться, уменьшаться', 'Отказ (formal)', 'Уменьшить', 'Уменьшить', 'Выносливость, стойкость', 'Выносливость', 'Подтверждение, согласие', 'Неуместный', 'Неуместная шутка', 'Безобидная шутка', 'Хромать', 'Мягкий, безвольный', 'Слабое рукопожатие', 'Карьер, каменоломня', 'Известняк', 'Гранит', 'Негодовать, возмущаться', 'Попивать', 'Глоток', 'Напиток', 'Напиток', 'Подыгрывать, поддакивать', 'Вибрирующая игрушка', 'Разрушать', 'Руина', 'Мэр', 'Жестокий, зверский', 'Жестокий', 'Мечеть', 'Бальзам', 'Утешение для ', 'Точность', 'Точный', 'Педант', 'Точный, чёткий', 'Дерьмовый', 'Измазать', 'Имеющий право', 'Давать право', 'Пенсионер', 'Майонез', 'Соус, подливка', 'Горчица', 'Судимость', 'Убеждение', 'Непобедимый', 'Вице-президент', 'Порок', 'Поездка на работу и обратно', 'Ездить на работу и обратно', 'Заменять, переключать', 'Смертная казнь', 'Разворошить гнездо (куча неприятностей)', 'Сболтнуть не подумав, проболтаться', 'Убедительный', 'Захватывающий', 'Роман', 'Краткое изложение', 'Обзор, анкетирование', 'Проводить опрос', 'Грязный, мерзкий', 'Скатерть', 'Одеколон', 'Дезодорант', 'Духи', 'Объедки, остатки еды', 'Вмятина', 'Вмять', 'Всхлипывать, громко рыдать', 'Отрыжка', 'Расчёсывать волосы', 'Расчёска', 'Небрежный, неряшливый', 'Мокрый, сырой', 'Небрежный(formal), неосторожный', 'Пренебрегать', 'Унизительный, оскорбительный', 'Унижение', 'Унижать', 'Терпеть унижение', 'Порочить, чернить', 'Сбережения', 'Сочувствовать кому-то', 'Сочувствие', 'Сострадание', 'Сочувствовать кому-либо', 'Принимать участие', 'Принимать участие (не так формально)', 'Мгновение', 'Мгновенный', 'Мгновенно, тотчас', 'На мгновение', 'Растворимый', 'Домашние дела (работа по дому)', 'Скучная рутинная работа', 'Протест', 'Точка (br)', '"Конец разговора"', 'Точка(us)', 'Период', 'Процветание, благосостояние', 'Точка для сайтов', 'Точка для дроби', 'Точка зрения, момент', 'Душный', 'Старомодный', 'Удушающий (очень душный)', 'Приверженец, ярый сторонник', 'Точность, правильность', 'Эффективность', 'Опрятный', 'Двусмысленный, неопределенный', 'Неясный (мало информации)', 'Непонятный, неясный', 'Скрытый, непонятный, неясный', 'Красная Шапочка', 'Параграф, абзац', 'Делать паузу', 'Пауза', 'Двоеточие', 'Назначать (передача должности)', 'Назначать', 'Определять', 'Назначать (официально)', 'Продвигать', 'Получил повышение до (должность)', 'Отдел, разделение', 'Ассоциировать', 'Партнер, компаньон ', 'Связывать себя с', 'Товарищ по работе; коллега', 'Последовательный', 'Ссогласующийся с ', 'Стойкий, постоянный (может поменяться)', 'Непрерывный, последовательный ', 'Постоянно (иногда с негативным подтекстом)', 'Убедительный', 'Убедительный', 'Убеждать, уверять (поменять точку зрения)', 'Убеждать, уверять (побудить к действию)', 'Новейшие исследование', 'Исследование, расследование ', 'Ирония', 'Смайлик', 'Точка с запятой', 'Круглые скобки', 'Спланированный, предназначенный', 'Намереваться (еще думаю об этом)', 'Предназначенный (обреченный судьбой или другим человеком)', 'Намерение, цель (более формально)', 'Намерение, цель (не так формально)', 'Иметь склонность к; иметь тенденцию к', 'Разработать, образовать', 'Напряженный, сильный (больше к чувствам: сильная боль, сильно холодно и т.п.)', 'Интенсивный', 'Напряженный, натянутый (в основном из-за нервов)', 'Признавать', 'Исповедоваться в', 'Признавать, сознавать (акцент на осознать)', 'Списывать на экзамене', 'Изменять', 'Обожать, преклоняться', 'Восхищаться', 'Поклоняться', 'Ценить, высоко ставить', 'Благодарный, признательный', 'Благодарный', 'Ценить, оценивать', 'Оценивать (фидбек о работе, учёбе)', 'Избегать, уклоняться', 'Уклоняться, ускользать', 'Предотвращать', 'Отводить (взгляд)', 'Кризис', 'Ничего не могу поделать', 'Не в состоянии переносить', 'Не переносить ', 'Выдерживать, противостоять', 'Продолжать (что-то делать)', 'Завершать', 'Выполнять, достигать (завершить с успехом)', 'Достигать, добиваться желаемого ', 'Рассматривать, подумывать', 'Считаться, считается', 'Рассматривать, обдумывать (редко)', 'Рассматривать (более внимательно и серьезно)', 'Считать, полагать (правильно или неправильно сделано) ', 'Задержка', 'Задержка с ', 'Отрицать, отказывать', 'Отказываться ', 'Отказывать (более вежливо)', 'Отвергать, отклонять (более резко)', 'Презирать (сильно ненавидеть)', 'Ненавидеть, испытывать отвращение', 'Внушать отвращение, омерзение', 'Ненавидеть', 'Презрение, неуважение', 'Пренебрегать, презирать c надменностью', 'Пренебрежение, пренебрегать', 'Обсуждать', 'Обсуждать (обсуждение разных точек зрения)', 'Наслаждаться, получать удовольствие', 'Упиваться, наслаждаться', 'Совершать побег, убегать', 'Убегать, сбегать', 'Бежать, спасаться бегством (часто сбежать из-за опасности)', 'Нравиться, любить, хотеть', 'Воображать, представлять себе', 'Иметь желание, хотеть (настроение)', 'Заканчивать', 'Завершать (более формальное)', 'Сдаваться, отказываться', 'Сдаваться', 'Уступать, сдаваться, признать (согласиться с чьим-то мнением)', 'Продолжать', 'Политик', 'Вообразить, воображать', 'Представлять себе', 'Вовлекать в', 'Включать ', 'Продолжать', 'Держать для того, чтобы', 'Продолжайте! вперёд! ', 'Держаться на уровне', 'Ожидать с нетерпением, предвкушать', 'Упоминать', 'Возражать', 'Без разницы, всё равно', 'Проехали, забей', 'Скучать, упускать', 'Откладывать, отсрочить', 'Откладывать', 'Практика, практиковать', 'Обучение, подготовка', 'Упражнение, тренироваться ', 'Репетиция ', 'Тратить впустую время', 'Растрачивать, расточать', 'Бросать, покидать, уход с работы', 'Выход выходить', 'Увольнять, сокращать ', 'Покидать, уходить ', 'Увольняться, уходить в отставку ', 'Увольнять, освобождать (увольнение за что-то)', 'Увольнять (за что-то)', 'Вспоминать, припоминать', 'Помнить', 'Рекомендовать, советовать', 'Хвалить, одобрять (формально)', 'Сопротивляться', 'Возражать что-то делать', 'Рисковать', 'Предлагать, советовать', 'Терпеть, допускать', 'Терпеть, вынести', 'Понимать', 'Разразиться, взорваться', 'Привыкать (формально)', 'Привыкать (завершенное)', 'Привыкать (незавершённое)', 'Зависимый, пристрастный', 'To be afraid of', 'Беспокоиться / тревожиться о', 'Скучно что-то делать', 'Способный', 'Обеспокоенный, встревоженный', 'Довольствоваться, быть довольным (чем-то)', 'Удовлетворённый, довольный ', 'Посвящённый, очень преданный', 'Посвященный, увлеченный ', 'Жертвовать для, делать вклад', 'Быть занятым чем-то', 'Вязать', 'Бояться летать/высоты/пауков', 'Постоять за себя', 'Благотворительность', 'Разочароваться из-за', 'Разочароваться в', 'Расстраивать, расстраиваться', 'Расстроенный', 'Удрученный, лишенный воли', 'Отговорить от, препятствовать', 'Поощрять, ободрять', 'Приятно взволноваться', 'Нервный, нервничающий', 'Очень взволнованный', 'Возбуждать, побуждать', 'Парк развлечений', 'Быть известным в чём-то', 'Популярный ', 'Известный, хорошо знакомый', 'Прославленный, известный', 'Любить что-то', 'Интересоваться; увлекаться ', 'Капуста', 'Быть напуганным, испугаться чего-то внезапно', 'Быть в ужасе, сильно бояться', 'Быть шокированным, в ужасе', 'Внезапно испугаться', 'Дёргаться', 'Быть виновным', 'Был признан виновным', 'Быть обвиненным', 'Обвинение, обвинять за', 'Вина, ошибка', 'Испортить, напортачить', 'Хранение наркотиков', 'Измена, предательство', 'Изнасилование', 'Быть счастливым от', 'Восхищенный, в восторге ', 'Довольный, радостный', 'Удачный, счастливый (в плане удачи)', 'Довольный чем-то, удовлетворён (формальное)', 'Быть заинтересованным в', 'Любопытно, любознательный', 'Это не стоит', 'Ничего не стоящий; не имеющий никакой ценности', 'Заслуживать ', 'Стоящий, дельный (стоит это делать и стараться)', 'Ценный, дорогой', 'Антикварная вещь'];
-
-    const wordEng = document.querySelector('.quick-title');
-    const wordRu = document.querySelector('.quick-translation');
+    const wordTitle = document.querySelector('.quick-title');
+    const wordTranslate = document.querySelector('.quick-translation');
+    const langEng = document.querySelector('.switch__lang_eng');
+    const langRu = document.querySelector('.switch__lang_ru');
+    const nextBtn = document.querySelector('.quick-eng__btn');
+    const setList = document.querySelector('.set-list')
+    const setItem = document.querySelectorAll('.set-item_unchosen');
+    const setItemChosen = document.querySelector('.set-item_chosen');
     let current = 0;
+    let counter = document.querySelector('.counter');
+    let counterAll = document.querySelector('.counter-all');
+    let allWordsEng = allWordsMainEng;
+    let allWordsRu = allWordsMainRu;
+    let newArrEng = [];
+    let newArrRu = [];
 
-    wordEng.innerText = allWordsEng[current];
-    wordRu.innerText = allWordsRu[current];
+    setItemChosen.innerText = 'All';
+    setItem[0].classList.add('hidden');
 
-    wordEng.onclick = () => {
-        wordRu.classList.toggle('hidden');
+    counter.innerText = 1;
+    counterAll.innerText = allWordsEng.length;
+
+    function changeLang(word, wordAll, translate, translateAll, lang, oldLang) {
+      current = 0;
+      counter.innerText = 1;
+      word.innerText = wordAll[0];
+      translate.innerText = translateAll[0];
+      oldLang.classList.remove('switch__lang_active');
+      lang.classList.remove('switch__lang_inactive');
+      oldLang.classList.add('switch__lang_inactive');
+      lang.classList.add('switch__lang_active');
+
+      word.onclick = () => {
+         translate.classList.toggle('show');
+       }
+      setItem[0].addEventListener("click", () => collectSet(0, 467));
+      setItem[1].addEventListener("click", () => collectSet(0, 55));
+      setItem[2].addEventListener("click", () => collectSet(56, 101));
+      setItem[3].addEventListener("click", () => collectSet(102, 151));
+      setItem[4].addEventListener("click", () => collectSet(152, 192));
+      setItem[5].addEventListener("click", () => collectSet(193, 240));
+      setItem[6].addEventListener("click", () => collectSet(241, 300));
+
+      nextBtn.onclick = () => {
+        current++;
+        counter.innerText = current + 1;
+        word.innerText = wordAll[current];
+        translate.innerText = translateAll[current];
+
+        if(counter.innerText > allWordsEng.innerText) {
+          counter.innerText = counterAll.innerText;
+          nextBtn.innerText = 'Start again';
+          wordTitle.style.display = 'none';
+          let img = document.createElement('img');
+          document.querySelector('.word-section').appendChild(img);
+          img.setAttribute('src', 'https://englishcards.github.io/elementary/img_main/end.jpg');
+          img.classList.add('img-end');
+
+          nextBtn.onclick = () => {
+            img.remove();
+            wordTitle.style.display = 'block';
+            nextBtn.innerText = 'Next';
+            changeLang(wordTitle, allWordsEng, wordTranslate, allWordsRu, langEng, langRu);
+          }  
+        }
       }
+    }
 
-    document.querySelector('.quick-eng__btn').onclick = () => {
-      current++;
-      wordEng.innerText = allWordsEng[current];
-      wordRu.innerText = allWordsRu[current];
+    langRu.onclick = () => changeLang(wordTitle, allWordsRu, wordTranslate, allWordsEng, langRu, langEng);
+    langEng.onclick = () => changeLang(wordTitle, allWordsEng, wordTranslate, allWordsRu, langEng, langRu);
+
+    changeLang(wordTitle, allWordsEng, wordTranslate, allWordsRu, langEng, langRu);
+
+    setList.onclick = () => {
+      setItem.forEach( element => {
+        element.classList.toggle('show');
+
+        element.onclick = () => {
+          for(let i = 0; i < setItem.length; i++) {
+            setItem[i].classList.remove('hidden');
+          }
+          setTimeout(() => {
+            setItemChosen.innerText = element.innerText;
+            element.classList.add('hidden');
+          }, 1);
+        }
+      });
+    }
+
+    function collectSet(start, end) {
+        allWordsEng = allWordsMainEng;
+        allWordsRu = allWordsMainRu;
+        newArrEng = [];
+        newArrRu = [];
+
+        for(let i = start; i < end; i++) {
+          newArrEng.push(allWordsEng[i]);  
+          newArrRu.push(allWordsRu[i]);  
+        }
+        allWordsEng = newArrEng;
+        allWordsRu = newArrRu;
+        allWordsEng.innerText = allWordsEng.length;
+        counterAll.innerText = allWordsEng.length;
+        changeLang(wordTitle, allWordsEng, wordTranslate, allWordsRu, langEng, langRu);
     }
   </script>
 </body>
