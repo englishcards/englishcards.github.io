@@ -1,11 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>Quick Word</title>
+  <title>Quick word</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link href="https://fonts.googleapis.com/css?family=Raleway:400,500i&display=swap" rel="stylesheet">
-  <link rel="shortcut icon" href="../elementary/img_main/favicon.ico" type="image/x-icon">
   <link rel="stylesheet" href="style.css">
   <style>
     .word-section {
@@ -13,7 +12,7 @@
       margin-top: 30px;
     }
     .word__title {
-      width: 80%;
+      width: 75%;
     }
     .quick-eng__btn {
       display: block;
@@ -23,11 +22,12 @@
       display: none;
       margin-top: 10px;
     }
-    .switch__lang {
-      position: absolute;
-      top: 0;
-      right: 0;
-      z-index: 5;
+    .switch__lang,
+    .counter-wrap {
+      position: fixed;
+      bottom: 20px;
+      right: 15px;
+      font-size: 18px;
     }
     .switch__lang_active {
       color: #b105ff;
@@ -40,28 +40,30 @@
       cursor: pointer;
     }
     .counter-wrap {
-      position: absolute;
-      top: 25px;
-      left: 0;
+      left: 15px;
       color: rgba(63,63,63,0.8);
+      font-size: 16px;
     }
     .img-end {
       display: block;
       margin: 0 auto;
-      width: 240px;
+      width: 200px;
     }
     .set-list {
       position: absolute;
       z-index: 5;
-      top: 0;
+      top: -25px;
       left: 0;
-      min-width: 120px; 
-      max-height: 150px;
       background: #fff;
-      overflow-y: auto;
+    }
+    .set-list_move {
+      width: 100%;
+      text-align: center;
+      transition: 0.4s;
     }
     .set-item {
       display: none;
+      padding-bottom: 5px;
       transition: 0.4s;
     }
     .set-item:hover {
@@ -70,6 +72,7 @@
     .set-item_chosen {
       display: block;
       color: #b105ff;
+      font-size: 14px;
       font-weight: 700;
     }
     .show {
@@ -104,19 +107,22 @@
               <li class="set-item set-item_unchosen">Set-4</li>
               <li class="set-item set-item_unchosen">Set-5</li>
               <li class="set-item set-item_unchosen">Set-6</li>
+              <li class="set-item set-item_unchosen">Set-7</li>
+              <li class="set-item set-item_unchosen">Set-8</li>
+              <li class="set-item set-item_unchosen">Set-9</li>
             </ul>
           </div>
-          <span class="switch__lang">
-            <span class="switch__lang_eng switch__lang_active">Eng</span> / <span class="switch__lang_ru switch__lang_inactive">Ru</span>
-          </span>
-          <span class="counter-wrap">
-            <span class="counter"></span> / <span class="counter-all"></span>
-          </span>
           <span class="word__title quick-title word-wrap"></span>
             <span class="word__title quick-translation"></span>
         </div>
           <button class="word__btn quick-eng__btn">Next</button>
       </div>
+      <span class="counter-wrap">
+          <span class="counter"></span> / <span class="counter-all"></span>
+      </span>
+      <span class="switch__lang">
+          <span class="switch__lang_eng switch__lang_active">Eng</span> / <span class="switch__lang_ru switch__lang_inactive">Ru</span>
+      </span>
     </div>
   </main>
   <script>
@@ -165,6 +171,9 @@
       setItem[4].addEventListener("click", () => collectSet(152, 192));
       setItem[5].addEventListener("click", () => collectSet(193, 240));
       setItem[6].addEventListener("click", () => collectSet(241, 300));
+      setItem[7].addEventListener("click", () => collectSet(300, 361));
+      setItem[8].addEventListener("click", () => collectSet(361, 402));
+      setItem[9].addEventListener("click", () => collectSet(402, 467));
 
       nextBtn.onclick = () => {
         current++;
@@ -197,6 +206,7 @@
     changeLang(wordTitle, allWordsEng, wordTranslate, allWordsRu, langEng, langRu);
 
     setList.onclick = () => {
+      setList.classList.toggle('set-list_move');
       setItem.forEach( element => {
         element.classList.toggle('show');
 
