@@ -456,10 +456,13 @@ hr {
 }
 .password__btn {
 	width: 45% !important;
-	margin: 15px 5% 0 0 !important;
+	margin: 15px 0 0 0;
 	padding: 8px !important;
 	line-height: 1.5;
 	text-align: center;
+}
+.password__btn_confirm {
+	margin-right: 10px;
 }
 .hidden {
 	display: none;
