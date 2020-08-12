@@ -140,6 +140,9 @@ a {
 	background-image: url(12/img/14.jpg);
 	background-position: 40% 0%;
 }
+.collection__link_thirteenth::before {
+	background-image: url(13/img/1.jpg);
+}
 .collection__link_quick::before {
 	background-image: url(../elementary/img_main/clock.svg);
 	background-size: 75% 75%;
