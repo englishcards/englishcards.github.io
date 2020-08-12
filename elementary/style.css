@@ -452,7 +452,7 @@ hr {
 	padding: 10px;
 }
 .word__btn_left {
-	margin-right: 15px;
+	margin-right: 15px !important;
 }
 .password__btn {
 	width: 45% !important;
