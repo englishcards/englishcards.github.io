@@ -143,6 +143,9 @@ a {
 .collection__link_thirteenth::before {
 	background-image: url(13/img/1.jpg);
 }
+.collection__link_fourteenth::before {
+	background-image: url(14/img/1.jpg);
+}
 .collection__link_quick::before {
 	background-image: url(../elementary/img_main/clock.svg);
 	background-size: 75% 75%;
