@@ -156,6 +156,30 @@ a {
 .collection__link_seventeenth::before {
 	background-image: url(17/img/2.jpg);
 }
+.collection__link_eighteenth::before {
+	background-image: url(18/img/1.jpg);
+}
+.collection__link_nineteenth::before {
+	background-image: url(19/img/12.jpg);
+}
+.collection__link_twentyth::before {
+	background-image: url(20/img/6.jpg);
+}
+.collection__link_twentyfirst::before {
+	background-image: url(21/img/1.jpg);
+}
+.collection__link_twentysecond::before {
+	background-image: url(22/img/12.jpg);
+}
+.collection__link_twentythird::before {
+	background-image: url(23/img/8.jpg);
+}
+.collection__link_twentyfourth::before {
+	background-image: url(24/img/20.jpg);
+}
+.collection__link_twentyfifth::before {
+	background-image: url(25/img/9.jpg);
+}
 .collection__link_quick::before {
 	background-image: url(../elementary/img_main/clock.svg);
 	background-size: 75% 75%;
