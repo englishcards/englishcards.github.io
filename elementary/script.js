@@ -311,9 +311,9 @@ function openListening() {
 	audioPlayer.src = `audio/tracks/1.mp3`;
 	volume.value = 100;
 	currentTimeTrack.innerText = '0:00';
-	
+	setTimeout(() => {
 		stateTime();
-	
+	}, 1000);
 	
 	audioPlayer.ontimeupdate = showProgress;
 	progressBar.onclick = changeProgress;
@@ -430,9 +430,9 @@ function openListening() {
 				dialogue.innerHTML = dialogueArr[unitNumber][trackNumber];
 				currentTimeTrack.innerText = '0:00';
 				
-				
+				setTimeout(() => {
 					stateTime();
-				
+				}, 1000);
 			}
 		});
 	}
