@@ -313,7 +313,7 @@ function openListening() {
 	currentTimeTrack.innerText = '0:00';
 	setTimeout(() => {
 		stateTime();
-	}, 1000);
+	}, 500);
 	
 	audioPlayer.ontimeupdate = showProgress;
 	progressBar.onclick = changeProgress;
@@ -432,7 +432,7 @@ function openListening() {
 				
 				setTimeout(() => {
 					stateTime();
-				}, 1000);
+				}, 500);
 			}
 		});
 	}
