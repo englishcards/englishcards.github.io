@@ -297,14 +297,15 @@ function openListening() {
 	const playerBg = document.querySelector('.listening-section');
 
 	let unitNumber = document.querySelector('title').innerText;
-	let titleTenth = unitNumber[unitNumber.length -2];
-	unitNumber = unitNumber[unitNumber.length -1];
 	let dialogue = document.querySelector('.dialogue');
 	let duration = document.querySelector('.listening__duration');
 	let currentTimeTrack = document.querySelector('.listening__current-time');
 
-	if (unitNumber == 0) {
-		unitNumber = `${titleTenth}0`;
+	if (unitNumber[unitNumber.length - 2] == 0) {
+		unitNumber = unitNumber[unitNumber.length - 1];
+	}
+	else {
+		unitNumber = unitNumber.slice(unitNumber.length - 2, unitNumber.length);
 	}
 
 	dialogue.innerHTML = dialogueArr[unitNumber][1];
@@ -429,7 +430,6 @@ function openListening() {
 				audioPlayer.src = `audio/tracks/${trackNumber}.mp3`;
 				dialogue.innerHTML = dialogueArr[unitNumber][trackNumber];
 				currentTimeTrack.innerText = '0:00';
-				
 				setTimeout(() => {
 					stateTime();
 				}, 500);
