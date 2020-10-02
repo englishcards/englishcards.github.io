@@ -94,7 +94,8 @@ a {
 .collection__link::before,
 .collection__link_mix::before,
 .collection__link_second::before,
-.collection__link_quiz::before {
+.collection__link_quiz::before,
+.collection__link_drawing::before {
 	position: absolute;
 	content: "";
 	top: 50%;
@@ -109,15 +110,19 @@ a {
 .collection__link_mix::before {
 	background-image: url(img_main/bookmark.svg);
 }
-.collection__link_quiz::before {
+.collection__link_quiz::before,
+.collection__link_final::before,
+.collection__link_drawing::before {
 	background-image: url(img_main/quiz.svg);
 	background-position: 58% 50%;
 	background-size: 70% 70%;
 }
-.collection__link_final::before {
+.collection__link_final::before,
+.collection__link_drawing::before {
 	background-image: url(img_main/cup.svg);
-	background-position: 58% 50%;
-	background-size: 70% 70%;
+}
+.collection__link_drawing::before {
+	background-image: url(img_main/drawing.svg);
 }
 .collection__link_second::before {
 	background-image: url(2/img/11.jpg);
