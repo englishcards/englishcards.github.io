@@ -121,6 +121,8 @@
   }
   .drawing-img  {
     height: 200px;
+    max-width: 767px;
+    margin: 0 auto;
   }
   .unit-item {
     padding-bottom: 18px;
