@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Quick word</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://fonts.googleapis.com/css?family=Raleway:400,500i&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../style.css">
+  <style>
+    .word-section {
+      position: relative;
+      margin-top: 15px;
+    }
+    .word__title {
+      width: 75%;
+    }
+    .quick-eng__btn {
+      display: block;
+      margin: 30px auto;    
+    }
+    .quick-translation {
+      display: none;
+      margin-top: 10px;
+    }
+    .switch__lang,
+    .counter-wrap,
+    .switch__random {
+      position: fixed;
+      bottom: 20px;
+      right: 15px;
+      font-size: 18px;
+      cursor: pointer;
+    }
+    .switch__lang_active {
+      color: #b105ff;
+      font-weight: 700;
+      cursor: default;
+    }
+    .switch__lang_inactive {
+      color: rgba(63,63,63,0.5);
+      font-weight: 400;
+      cursor: pointer;
+    }
+    .counter-wrap {
+      left: 15px;
+      color: rgba(63,63,63,0.8);
+      font-size: 16px;
+      cursor: default;
+    }
+    .switch__random {
+      right: 0;
+      left: 50%;
+      display: block;
+      color: rgba(63,63,63,0.5);
+      text-align: center;
+      transform: translateX(-50%);
+    }
+    .img-end {
+      display: block;
+      margin: 0 auto;
+      width: 200px;
+    }
+    .set-list {
+      position: fixed;
+      z-index: 10;
+      top: -25px;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      padding-top: 50px;
+      text-align: center;
+      display: none;
+      background: #fff;
+    }
+    .set-list_move {
+      width: 100%;
+      text-align: center;
+      transition: 0.4s;
+    }
+    .set-item {
+      padding-bottom: 5px;
+      transition: 0.4s;
+    }
+    .set-item:hover {
+      color: #b105ff;
+    }
+    .set-item_chosen {
+      display: block;
+      max-width: 65px;
+      color: #b105ff;
+      font-weight: 700;
+    }
+    .show {
+      display: block;
+    }
+    .hidden {
+      display: none;
+    }
+    @media (min-width: 767px) {
+    	.set-item_chosen {
+    		font-size: 18px;
+    	}
+    	.set-item {
+    		padding-bottom: 12px;
+    		font-size: 20px;
+    	}
+    }
+  </style>
+</head>
+<body>
+  <header id="header">
+    <div class="container">
+      <div class="header">
+        <img class="header__img" src="../img_main/logo.png" alt="Logo">
+        <h1 class="header__title">English cards</h1>
+        <a href="../index.html" class="header__link"></a>
+      </div>
+    </div>
+  </header>
+  <main>
+    <div class="container">
+      <div>
+        <div class="word-section">
+            <span class="set-item_chosen">Unit-1</span>
+            <ul class="set-list">
+              <li class="set-item set-item_unchosen">Unit-1</li>
+              <li class="set-item set-item_unchosen">Unit-2</li>
+              <li class="set-item set-item_unchosen">Unit-3</li>
+              <li class="set-item set-item_unchosen">Unit-4</li>
+              <li class="set-item set-item_unchosen">Unit-5</li>
+              <li class="set-item set-item_unchosen">Unit-6</li>
+              <li class="set-item set-item_unchosen">Unit-7</li>
+              <li class="set-item set-item_unchosen">Unit-8</li>
+              <li class="set-item set-item_unchosen">Unit-9</li>
+              <li class="set-item set-item_unchosen">Unit-10</li>
+              <li class="set-item set-item_unchosen">Unit-11</li>
+              <li class="set-item set-item_unchosen">Unit-12</li> 
+              <li class="set-item set-item_unchosen set-item_all">All</li>
+            </ul>
+          <span class="word__title quick-title word-wrap"></span>
+          <span class="word__title quick-translation"></span>
+        </div>
+          <button class="word__btn quick-eng__btn">Next</button>
+      </div>
+      <span class="counter-wrap">
+        <span class="counter"></span> / <span class="counter-all"></span>
+      </span>
+      <span class="switch__random">Random</span>  
+      <span class="switch__lang">
+        <span class="switch__lang_eng switch__lang_active">Eng</span> / <span class="switch__lang_ru switch__lang_inactive">Ru</span>
+      </span>
+    </div>
+  </main>
+  <script src="../all-words.js"></script>
+  <script src="quick-word.js"></script>
+</body>
+</html>
+

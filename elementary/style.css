@@ -112,7 +112,8 @@ a {
 }
 .collection__link_quiz::before,
 .collection__link_final::before,
-.collection__link_drawing::before {
+.collection__link_drawing::before,
+.collection__link_quick::before {
 	background-image: url(img_main/quiz.svg);
 	background-position: 58% 50%;
 	background-size: 70% 70%;
@@ -123,6 +124,10 @@ a {
 }
 .collection__link_drawing::before {
 	background-image: url(img_main/drawing.svg);
+}
+.collection__link_quick::before {
+	background-image: url(img_main/clock.svg);
+	background-position: 50% 50%;
 }
 .collection__link_second::before {
 	background-image: url(2/img/11.jpg);
