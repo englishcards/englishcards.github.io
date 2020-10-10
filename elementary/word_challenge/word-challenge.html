@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Quick word</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://fonts.googleapis.com/css?family=Raleway:400,500i&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  <header id="header">
+    <div class="container">
+      <div class="header">
+        <img class="header__img" src="../img_main/logo.png" alt="Logo">
+        <h1 class="header__title">English cards</h1>
+        <a href="../index.html" class="header__link"></a>
+      </div>
+    </div>
+  </header>
+  <main>
+    <div class="container">
+      <div class="challenge-menu">
+        <h2 class="challenge-menu__title">Word challenge</h2>
+        <div class="challenge-menu__box challenge-unit"><span class="challenge-param challenge-param_unit">Unit - 1</span></div>
+        <div class="challenge-menu__box challenge-time"><span class="challenge-param challenge-param_time">10 seconds</span></div>
+        <button class="word__btn challenge-menu__btn">START</button>
+        <ul class="fixed-list challenge-unit-list hidden">
+          <li class="fixed-item challenge-unit-item">Unit - 1</li>  
+          <li class="fixed-item challenge-unit-item">Unit - 2</li>  
+          <li class="fixed-item challenge-unit-item">Unit - 3</li>  
+          <li class="fixed-item challenge-unit-item">Unit - 4</li>  
+          <li class="fixed-item challenge-unit-item">Unit - 5</li>  
+          <li class="fixed-item challenge-unit-item">Unit - 6</li>  
+          <li class="fixed-item challenge-unit-item">Unit - 7</li>  
+          <li class="fixed-item challenge-unit-item">Unit - 8</li>  
+          <li class="fixed-item challenge-unit-item">Unit - 9</li>  
+          <li class="fixed-item challenge-unit-item">Unit - 10</li>  
+          <li class="fixed-item challenge-unit-item">Unit - 11</li>  
+          <li class="fixed-item challenge-unit-item">Unit - 12</li>  
+        </ul>
+        <ul class="fixed-list challenge-time-list hidden">
+          <li class="fixed-item challenge-time-item">5 seconds</li>  
+          <li class="fixed-item challenge-time-item">10 seconds</li>  
+          <li class="fixed-item challenge-time-item">20 seconds</li>   
+        </ul>
+      </div>
+      <div class="challenge-wrap" hidden>
+        <div class="word-section">
+          <h2 class="progress unit-number"></h2>
+          <span class="result timer-wrap"><span class="result timer"></span></span>
+          <span class="word__title word__title_ru test-title"></span><hr class="test-hr">
+          <div class="test-wrap">
+            <ol class="test-list">
+              <li class="test-item"><span class="answer__word"></span></li>
+              <li class="test-item"><span class="answer__word"></span></li>
+              <li class="test-item"><span class="answer__word"></span></li>
+              <li class="list-disabled" hidden></li>
+            </ol> 
+          </div>
+        </div>
+          <button class="word__btn btn-next">Choose</button>
+      </div>
+    </div>
+  </main>
+  <script src="../all-words.js"></script>
+  <script src="word-challenge.js"></script>
+</body>
+</html>
+
