@@ -36,8 +36,20 @@ function settingChallenge() {
 			}
 		});
 	}
+
+	document.querySelector('.challenge-unit-item_all').onclick = () => {
+		settingUnitList.style.display = 'none';
+		allWords[allWords.length] = {
+			name: "All",
+			eng: [],
+			ru: []
+		}
+		collectArrAll();
+		settingUnit.innerText = 'All';
+		unit = allWords.length - 1;	
+	}
 }
-settingChallenge()
+settingChallenge();
 
 function startChallenge() {
 	const btnNext = document.querySelector('.btn-next');
@@ -212,6 +224,14 @@ function startChallenge() {
 	}
 }
 
+function collectArrAll() {
+	for (let i = 0; i < allWords.length-1; i++) {
+		for (let j = 0; j < allWords[i].eng.length; j++) {
+			allWords[allWords.length - 1].eng.push(allWords[i].eng[j]);
+			allWords[allWords.length - 1].ru.push(allWords[i].ru[j]);
+		}
+	}
+}
 
 
 
