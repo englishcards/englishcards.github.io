@@ -180,6 +180,33 @@ a {
 .collection__link_twentyfifth::before {
 	background-image: url(25/img/9.jpg);
 }
+.collection__link_twentysixth::before {
+	background-image: url(26/img/16.jpg);
+}
+.collection__link_twentyseventh::before {
+	background-image: url(27/img/18.jpg);
+	background-position: 50% 0%;
+}
+.collection__link_twentyeighth::before {
+	background-image: url(28/img/10.jpg);
+}
+.collection__link_twentyninth::before {
+	background-image: url(29/img/18.jpg);
+	background-size: 85% 85%;
+}
+.collection__link_thirty::before {
+	background-image: url(30/img/17.jpg);
+	background-position: 30% 50%;
+}
+.collection__link_thirtyfirst::before {
+	background-image: url(31/img/5.jpg);
+}
+.collection__link_thirtysecond::before {
+	background-image: url(32/img/15.jpg);
+}
+.collection__link_thirtythird::before {
+	background-image: url(33/img/18.jpg);
+}
 .collection__link_quick::before {
 	background-image: url(../elementary/img_main/clock.svg);
 	background-size: 75% 75%;
