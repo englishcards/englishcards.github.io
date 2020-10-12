@@ -8,6 +8,10 @@
     
     ['Unit3',
     'Wife husband', 'Brother sister', 'Father', 'Children', 'Mother', 'Daughter', 'Son', 'Grandmother grandfather', 'Parents', 'Aunt', 'Uncle', 'Cousin'],
+
+    ['Unit4',
+    'Garage', 'Balcony', 'Hall', 'Kitchen', 'Dining room', 'Living room', 'Stairs', 'Home office', 'Bedroom', 'Bathroom', 'Roof', 'Garden', 'Armchair', 'Bath', 'Bed', 'Carpet', 'Cupboard', 'Plant', 'Rug', 'Television', 'Shower', 'Sink', 'Sofa', 'Shelves', 'Wardrobe', 'Lamp', 'Washbasin'],
+
     ];
     const drawingWrap = document.querySelector('.drawing');
     const drawingBtn = document.querySelectorAll('.drawing__btn');
@@ -25,7 +29,7 @@
     defineUnit();
     drawingWrap.style.backgroundImage = `url(${defineUnit()}.jpg)`;
     orderBtn('37%','15%','37%','47%','37%','72%','15%','15%','15%','60%');
-    orderImg('35%','15%','35%','44%','35%','72%','15%','15%','15%','60%', '24%');
+    orderImg('37%','15%','37%','44%','37%','72%','15%','15%','15%','60%', '24%');
 
     function orderBtn(b1,l1,b2,l2,b3,l3,b4,l4,b5,l5) {
       drawingBtn[0].style.bottom = b1;
@@ -117,17 +121,22 @@
         if (unitNumber == 'Unit 1') {
           imageCount = 17;
           orderBtn('37%','15%','37%','47%','37%','72%','15%','15%','15%','60%');
-          orderImg('35%','15%','35%','44%','35%','72%','15%','15%','15%','60%', '24%');
+          orderImg('37%','15%','37%','44%','37%','72%','15%','15%','15%','60%', '24%');
         }
         if (unitNumber == 'Unit 2') {
           imageCount = 20;
           orderBtn('75%','50%','63%','50%','45%','50%','22%','50%','10%','50%');
-          orderImg('74%','74%','58%','50%','42%','74%','24%','50%','6%','74%', '25%');
+          orderImg('74%','74%','58%','48%','42%','74%','24%','48%','6%','74%', '25%');
         }
         if (unitNumber == 'Unit 3') {
           imageCount = 13;
           orderBtn('25%','11%','25%','37%','25%','63%','50%','25%','50%','55%');
           orderImg('25%','11%','25%','37%','25%','63%','50%','20%','50%','50%', '25%');
+        }
+        if (unitNumber == 'Unit 4') {
+          imageCount = 28;
+          orderBtn('2%','3%','2%','37%','2%','72%','25%','7%','25%','54%');
+          orderImg('2%','3%','2%','37%','2%','72%','25%','7%','25%','54%', '25%');
         }
       } 
   });
