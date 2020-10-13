@@ -12,6 +12,13 @@
     ['Unit4',
     'Garage', 'Balcony', 'Hall', 'Kitchen', 'Dining room', 'Living room', 'Stairs', 'Home office', 'Bedroom', 'Bathroom', 'Roof', 'Garden', 'Armchair', 'Bath', 'Bed', 'Carpet', 'Cupboard', 'Plant', 'Rug', 'Television', 'Shower', 'Sink', 'Sofa', 'Shelves', 'Wardrobe', 'Lamp', 'Washbasin'],
 
+    ['Unit5',
+    'Cheese', 'Chicken', 'Banana', 'Egg', 'Fruit juice', 'Pear', 'Pepper', 'Butter', 'Garlic', 'Milk', 'Potatoes', 'Broccoli', 'Strawberry', 'Salmon', 'Shrimp', 'Bowl', 'Jar', 'Bottle', 'Bag', 'Cup', 'Tin', 'Carton', 'Packet'],
+
+    ['Unit6',
+    'Go to the gym', 'Go for a walk', 'See friends', 'Do nothing', 'Stay at home', 'Do the housework', 'Stay with friends', 'Write an e-mail', 'Go shopping', 'Read a book', 'Talk on the phone'],
+
+
     ];
     const drawingWrap = document.querySelector('.drawing');
     const drawingBtn = document.querySelectorAll('.drawing__btn');
@@ -137,6 +144,16 @@
           imageCount = 28;
           orderBtn('2%','3%','2%','37%','2%','72%','25%','7%','25%','54%');
           orderImg('2%','3%','2%','37%','2%','72%','25%','7%','25%','54%', '25%');
+        }
+        if (unitNumber == 'Unit 5') {
+          imageCount = 25;
+          orderBtn('38%','20%','16%','20%','16%','64%','75%','20%','58%','64%');
+          orderImg('38%','20%','16%','20%','16%','62%','75%','20%','58%','62%', '25%');
+        }
+        if (unitNumber == 'Unit 6') {
+          imageCount = 12;
+          orderBtn('82%','44%','48%','13%','47%','66%','71%','14%','70%','70%');
+          orderImg('76%','39%','40%','10%','40%','68%','65%','10%','65%','68%', '25%');
         }
       } 
   });
