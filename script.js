@@ -1,62 +1,61 @@
-function openPassword() {
-	const passwordLink = document.querySelector('.collection__item_password');
+let unitLocation;
 
-	passwordLink.onclick = () => {
-		let overlay = document.createElement('div');
-		document.body.appendChild(overlay);
-		overlay.classList.add('test-modal');
-		overlay.innerHTML = '<div class="modal-window"><p class="test-modal__text">Please put a password</p><span class="password-input-wrap"><input class="password-input" type="password" autofocus><span class="password-error" hidden>Invalid password</span></span><div class="btn-wrap"><a class="word__btn password__btn password__btn_confirm">Confirm</a><a class="word__btn password__btn password__btn_cancel">Cancel</a></div></div>';
+if (window.location.href.includes('index.html')) showAllUnits();
+if (window.location.href.includes('unit.html')) showSingleUnit();	
 
-		let confirmBtn = document.querySelector('.password__btn_confirm');
-		let passwordInput = document.querySelector('.password-input');
-		let passwordError = document.querySelector('.password-error');
-		passwordInput.focus();
+function showAllUnits() {
+	const unitWrap = document.querySelector('.unit-wrap');
+	for (let i = 1; i <= 1; i++) {
+		const unit = document.createElement('a');
+		unit.classList.add('unit');
+		unitWrap.appendChild(unit);
 
-		window.addEventListener('keyup', function (e) {
-		  	if (e.keyCode === 13) {
-		    	e.preventDefault();
-		   		if (passwordInput.value == 'i') {
-					confirmBtn.setAttribute('href', 'individual/index.html');
-					document.location.href = "https://englishcards.github.io/individual/index.html";
-				}
-				else if (passwordInput.value == '') {
-					passwordError.innerText = 'Can\'t be blank' ;
-					passwordError.hidden = false;
-					passwordInput.style.borderColor = '#ff0000';
-					return false;
-				}
-				else {
-					passwordError.innerText = 'Invalid password';
-					passwordError.hidden = false;
-					passwordInput.style.borderColor = '#ff0000';
-					return false;
-				}
-		  	}
-		  	else if (e.keyCode === 27) {
-		  		overlay.remove();
-		  	}
-		});
-
-		passwordInput.onblur = () => {
-			if (passwordInput.value == 'i') {
-				confirmBtn.onclick = () => confirmBtn.setAttribute('href', 'individual/index.html');
-			}
-			else if (passwordInput.value == '') {
-				passwordError.innerText = 'Can\'t be blank' ;
-				passwordError.hidden = false;
-				passwordInput.style.borderColor = '#ff0000';
-				return false;
-			}
-			else {
-				passwordError.innerText = 'Invalid password';
-				passwordError.hidden = false;
-				passwordInput.style.borderColor = '#ff0000';
-				return false;
-			}
-		}
-		document.querySelector('.password__btn_cancel').onclick = () => {
-			overlay.remove();
-		}
-	}	
+		const unitTitle = document.createElement('h3');
+		unitTitle.classList.add('unit__title');
+		unit.appendChild(unitTitle);
+		unitTitle.innerText = `Unit-${i}`;
+	}
+	document.querySelectorAll('.unit').forEach( (element,arr) => {
+		element.onclick = () => {
+			window.location.href = `unit.html?unit-${arr+1}`;
+		}		
+	});
 }
-openPassword();
+
+function showSingleUnit() {
+	unitLocation = window.location.search.slice(6);
+	showTitle();
+	createCategories();
+
+
+//Show title and All categories
+	function showTitle() {
+		const title = document.querySelector('title');
+		title.innerText = unitAll[unitLocation - 1].unit;
+	}
+	function createCategories() {
+		const categoryWrap = document.querySelector('.category-wrap');
+		for(let i = 1; i <=6; i++) {
+			const category = document.createElement('div');
+			category.classList.add('category');
+			categoryWrap.appendChild(category);
+
+			const categoryTitle = document.createElement('h2');
+			categoryTitle.classList.add('category__title');
+			category.appendChild(categoryTitle);
+		}
+		const categoryArr = document.querySelectorAll('.category');
+		const categoryTitleArr = document.querySelectorAll('.category__title');
+		changeCategories(0,'Gramar','category-gramar');
+		changeCategories(1,'Words','category-words');
+		changeCategories(2,'Text','category-topic');
+		changeCategories(3,'Practice','category-practice');
+		changeCategories(4,'Audio','category-audio');
+		changeCategories(5,'Homework','category-homework');
+
+		function changeCategories(index,title,type) {
+			categoryArr[index].classList.add(type);
+			categoryTitleArr[index].innerText = title;
+		}
+	}
+}	
