@@ -1,31 +1,32 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+	<title>English cards</title>
 	<meta charset="utf-8">
-	<title>My English</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="shortcut icon" href="img_main/favicon.ico" type="image/x-icon">
-	<link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet"> 
-	<link rel="stylesheet" href="style.css">
+	<link href="https://fonts.googleapis.com/css?family=Raleway:400,700&display=swap" rel="stylesheet">
+	<link rel="shortcut icon" href="elementary/img_main/favicon.ico" type="image/x-icon">
+	<link rel="stylesheet" href="elementary/style.css">
 </head>
 <body>
-	<header class="header-main">
+	<header id="header">
 		<div class="container">
-			<div class="header-main-wrap">
-				<div class="header-logo">
-					<a class="header-logo-wrap" href="#">
-						<img src="img_main/logo.png" alt="logo">
-						<h1>My English</h1>
-					</a>
-				</div>
+			<div class="header">
+				<img class="header__img" src="elementary/img_main/logo.png" alt="Logo">
+				<h1 class="header__title">English cards</h1>
 			</div>
 		</div>
 	</header>
 	<main>
 		<div class="container">
-			<h2 class="main-title">Choose unit</h2>
-			<div class="unit-wrap"></div>
-			<a href="draw/draw.html" class="menu">Draw a picture</a>
+			<div class="collection">
+				<h2 class="collection__title">Choose a level</h2>
+				<ol class="collection__list collection__list_start">
+					<li class="collection__item"><a class="collection__link" href="elementary/index.html">Elementary</a></li>
+					<li class="collection__item collection__item_password"><a class="collection__link">Others</a></li>
+				</ol>
+				<img class="img-start" src="elementary/img_main/title.jpg">
+			</div>
 		</div>
 	</main>
 	<script src="script.js"></script>
