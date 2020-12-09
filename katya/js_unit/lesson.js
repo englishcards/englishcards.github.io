@@ -87,9 +87,9 @@ function addWords() {
 				createChildGrid(wordsGridWrap, wordsGridEng, 'words-grid__eng');
 				wordsGridEng.innerText = wordsAll[unitLocation - 1].wordsEng[index];
 				createChildGrid(wordsGridWrap, wordsGridSound, 'words-grid__sound');
-				wordsGridSound.innerText = wordsAll[unitLocation - 1].wordsEng[index];
+				wordsGridSound.innerText = wordsAll[unitLocation - 1].wordsSound[index];
 				createChildGrid(wordsGridWrap, wordsGridRu, 'words-grid__ru');
-				wordsGridRu.innerText = wordsAll[unitLocation - 1].wordsEng[index];
+				wordsGridRu.innerText = wordsAll[unitLocation - 1].wordsRu[index];
 
 				function createChildGrid(parent,child,cssClass) {
 					parent.appendChild(child);
