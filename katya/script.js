@@ -5,7 +5,7 @@ if (window.location.href.includes('unit.html')) showSingleUnit();
 
 function showAllUnits() {
 	const unitWrap = document.querySelector('.unit-wrap');
-	for (let i = 1; i <= 1; i++) {
+	for (let i = 1; i <= 2; i++) {
 		const unit = document.createElement('a');
 		unit.classList.add('unit');
 		unitWrap.appendChild(unit);
@@ -14,6 +14,11 @@ function showAllUnits() {
 		unitTitle.classList.add('unit__title');
 		unit.appendChild(unitTitle);
 		unitTitle.innerText = `Unit-${i}`;
+
+		const unitTitleImg = document.createElement('span');
+		unitTitleImg.classList.add('unit__title__img');
+		unitTitle.appendChild(unitTitleImg);
+		unitTitleImg.style.backgroundImage = `url(units/${i}/img/0.jpg)`;
 	}
 	document.querySelectorAll('.unit').forEach( (element,arr) => {
 		element.onclick = () => {

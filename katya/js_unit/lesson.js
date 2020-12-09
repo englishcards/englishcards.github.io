@@ -388,7 +388,7 @@ function addListening() {
 	let currentTimeTrack = document.querySelector('.listening__current-time');
 
 
-	audioPlayer.src = `units/1/audio/0.mp3`;
+	audioPlayer.src = `units/${unitLocation}/audio/0.mp3`;
 	volume.value = 100;
 	currentTimeTrack.innerText = '0:00';
 	setTimeout(() => {stateTime();}, 500);

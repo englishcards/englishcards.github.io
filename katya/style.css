@@ -117,7 +117,7 @@ button:hover {
 	padding-left: 80px;
 	font: 700 26px/2.8 'Lato', Arial, Helvetica, sans-serif;
 }
-.unit__title::before,
+.unit__title__img,
 .menu::before {
 	position: absolute;
 	content: '';
@@ -129,6 +129,9 @@ button:hover {
 	background: #fff url(img_main/end.jpg) center center no-repeat;
 	background-size: cover;
 	transform: translateY(-50%);
+}
+.unit__title__img {
+	background-size: 75% 75%;
 }
 .menu::before {
 	background-image: url('img_main/drawing.svg');
