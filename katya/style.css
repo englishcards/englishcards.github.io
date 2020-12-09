@@ -225,6 +225,9 @@ button:hover {
 	font-style: italic;
 	letter-spacing: 0;
 }
+.gramar-item ul {
+	margin-bottom: 25px;
+}
 .gramar-item__img::before {
 	top: 15px;
 	left: -2px;
@@ -433,6 +436,9 @@ button:hover {
 	line-height: 1.8;
 	word-spacing: 1px;
 	text-align: justify;
+}
+.text-paragraph:last-child {
+	margin-bottom: 40px;
 }
 .text-paragraph img {
 	width: 300px;
