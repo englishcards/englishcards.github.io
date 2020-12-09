@@ -34,14 +34,14 @@ const unitAll = [
 							<li class="example-item">She starts work at 9 o'clock</li>
 						</ul>
 					</li>
-					<li class="gramar-item gramar-item__img gramar-item_minus">Subject <span>+</span> am/are/is <span>+</span> not <span>+</span> object<br>
+					<li class="gramar-item gramar-item__img gramar-item_minus">Subject <span>+</span> do/does <span>+</span> not <span>+</span> object<br>
 						<p class="example-item example-item_main">I don't drink milk<span class="example-item_triangle"></span></p>
 						<ul class="example-list">
 							<li class="example-item">They don't read books</li>
 							<li class="example-item">He doesn't drive a car</li>
 						</ul>
 					</li>
-					<li class="gramar-item gramar-item__img gramar-item_mark">Am/are/is <span>+</span> Subject <span>+</span> object?<br>
+					<li class="gramar-item gramar-item__img gramar-item_mark">Do/Does <span>+</span> Subject <span>+</span> object?<br>
 						<p class="example-item example-item_main">Do you like listening to music?<span class="example-item_triangle"></span></p>
 						<ul class="example-list">
 							<li class="example-item">Do they live in Scotland?</li>
