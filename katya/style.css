@@ -853,21 +853,23 @@ button:disabled:hover {
 	position: absolute;
 	top: 6px;
 	left: 30px;
-	width: 20px;
-	height: 20px;
-	background: url(img_main/square.svg) no-repeat;
+	width: 30px;
+	height: 30px;
+	background: url(img_main/square.svg) center top no-repeat;
+	background-size: 20px 20px;
 	cursor: pointer;
 }
 .filter::before {
 	position: absolute;
 	z-index: 5;
 	content: '';
-	top: 50%;
+	top: 4px;
 	left: 50%;
 	width: 12px;
 	height: 12px;
 	background: url(img_main/filter.svg) no-repeat;
-	transform: translate(-50%,-50%);
+
+	transform: translateX(-50%);
 }
 .modal-verbs label {
 	position: relative;
