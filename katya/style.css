@@ -38,6 +38,14 @@ button {
 button:hover {
 	box-shadow: 0 0 5px 1px rgba(177, 5, 255, 0.5);
 }
+button:disabled {
+	background: rgba(177, 5, 255, 0.3);
+	transition: 0s !important;
+}
+button:disabled:hover {
+	box-shadow: none;
+	cursor: default;
+}
 *::-webkit-scrollbar {
     width: 8px;
     background-color: transparent;
@@ -332,7 +340,8 @@ button:hover {
 .words-overlay,
 .empty-overlay,
 .draw-grid-overlay,
-.draw-all-overlay {
+.draw-all-overlay,
+.overlay-verbs {
 	position: fixed;
 	z-index: 10;
 	top: 0;
@@ -742,7 +751,8 @@ button:hover {
 }
 
 /*Empty state*/
-.empty-overlay-modal {
+.empty-overlay-modal,
+.modal-verbs {
 	position: fixed;
 	z-index: 20;
 	top: 10%;
@@ -831,6 +841,7 @@ button:hover {
 .verbs-wrap {
 	position: relative;
 	width: 400px;
+	min-height: 85vh;
 	margin: 20px auto;
 	text-align: center;
 }
@@ -842,20 +853,72 @@ button:hover {
 	position: absolute;
 	top: 6px;
 	left: 30px;
-	width: 18px;
-	height: 18px;
+	width: 20px;
+	height: 20px;
 	background: url(img_main/square.svg) no-repeat;
 	cursor: pointer;
 }
 .filter::before {
 	position: absolute;
+	z-index: 5;
 	content: '';
 	top: 50%;
 	left: 50%;
-	width: 10px;
-	height: 10px;
+	width: 12px;
+	height: 12px;
 	background: url(img_main/filter.svg) no-repeat;
 	transform: translate(-50%,-50%);
+}
+.modal-verbs label {
+	position: relative;
+	display: block;
+	width: 100px;
+	margin: 0 auto 5px;
+	font-size: 17px;
+	cursor: pointer;
+	transition: .4s;
+}
+.modal-verbs label:hover {
+	color: #b105ff;
+}
+.verbs__checkbox {
+	visibility: hidden;
+}
+.verbs__checkbox_sign {
+	position: absolute;
+	content: "";
+	top: 50%;
+	left: 15px;
+	width: 15px;
+	height: 15px;
+	background: url(img_main/square.svg) no-repeat; 
+	transform: translateY(-50%);
+}
+.verbs__checkbox:checked + .verbs__checkbox_sign {
+	background: #b105ff url(img_main/checkbox.svg) 60% 60% no-repeat;
+	background-size: 60% 60%;
+	border-radius: 2px;
+}
+.filter-verbs-btn-wrap {
+	display: flex;
+	justify-content: space-between;
+	width: 220px;
+	margin: 20px auto;
+}
+.filter-verbs__btn {
+	width: 120px;
+	margin-top: 10px;
+	padding: 10px; 
+}
+.filter-verbs__btn_cancel {
+	width: 80px;
+	padding: 10px;
+	color: inherit;
+	background: none;
+}
+.filter-verbs__btn_cancel:hover {
+	color: #b105ff;
+	box-shadow: none;
 }
 .verbs__example {
 	display: block;
@@ -906,8 +969,8 @@ button:hover {
 	transform: translateY(-50%);
 }
 .random-text {
-	position: fixed;
-	bottom: 40px;
+	position: absolute;
+	bottom: 5px;
 	left: 50%;
 	font-size: 18px;
 	transform: translateX(-50%);
@@ -1227,6 +1290,10 @@ button:hover {
 	}
 	.verbs-wrap > .words-btn-wrap .verbs__btn {
 		margin-top: 7px;
+	}
+	.empty-overlay-modal,
+	.modal-verbs {
+		width: 305px;
 	}
 }
 
