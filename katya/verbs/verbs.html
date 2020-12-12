@@ -24,7 +24,7 @@
 	<main>
 		<div class="container">
 			<span class="count-question verbs__count"></span>
-			<span class="filter verbs__filter" hidden></span>
+			<span class="filter verbs__filter"></span>
 			<div class="verbs-wrap">
 				<b class="verbs__example"></b>
 				<div class="verbs-answer-wrap">
@@ -47,6 +47,24 @@
 					<button class="practice-test__btn verbs__btn">Next</button>
 				</div>
 				<span class="random-text verbs__random random-unchecked">Random</span>
+				<div class="overlay overlay-verbs hidden">
+					<div class="modal-verbs">
+						<label>
+							<input class="verbs__checkbox" type="checkbox" checked>
+							<span class="verbs__checkbox_sign"></span>
+							<span>A - E</span>
+						</label>
+						<label>
+							<input class="verbs__checkbox" type="checkbox" checked>
+							<span class="verbs__checkbox_sign"></span>
+							<span>F - L</span>
+						</label>
+						<div class="filter-verbs-btn-wrap">
+							<button class="filter-verbs__btn">Apply</button>
+							<button class="filter-verbs__btn_cancel">Cancel</button>
+						</div>
+					</div>
+				</div>
 			</div>
 		</div>
 	</main>
