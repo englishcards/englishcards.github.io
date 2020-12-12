@@ -51,6 +51,7 @@ button:hover {
     background: rgba(177, 5, 255, 0.8);
 }
 .container {
+	position: relative;
 	max-width: 1200px;
 	margin: 0 auto;
 	padding: 0 10px;
@@ -827,10 +828,34 @@ button:hover {
 }
 
 /*Irregular verbs*/
-.verbs-wrap{
+.verbs-wrap {
+	position: relative;
 	width: 400px;
 	margin: 20px auto;
 	text-align: center;
+}
+.verbs__count {
+	top: 6px;
+	right: 25px;
+}
+.filter {
+	position: absolute;
+	top: 6px;
+	left: 30px;
+	width: 18px;
+	height: 18px;
+	background: url(img_main/square.svg) no-repeat;
+	cursor: pointer;
+}
+.filter::before {
+	position: absolute;
+	content: '';
+	top: 50%;
+	left: 50%;
+	width: 10px;
+	height: 10px;
+	background: url(img_main/filter.svg) no-repeat;
+	transform: translate(-50%,-50%);
 }
 .verbs__example {
 	display: block;
@@ -841,6 +866,9 @@ button:hover {
 	position: relative;
 	width: 360px;
 	margin: 0 auto 20px;
+}
+.verbs-wrap > .words-btn-wrap .verbs__btn {
+	margin-top: 15px;
 }
 .verbs-answer__sign {
 	position: absolute;
@@ -857,6 +885,16 @@ button:hover {
 	margin: 0 auto;
 	line-height: 1.5;
 }
+.verbs__input::-moz-placeholder,
+.verbs__input:-moz-placeholder
+.verbs__input::placeholder {
+	color: rgba(63,63,63,0.4);
+	font-weight: 400;
+}
+.verbs__input::-webkit-input-placeholder {
+	color: rgba(63,63,63,0.4);
+	font-weight: 400;
+}
 .verbs-answer__correct {
 	position: absolute;
 	display: none;
@@ -867,6 +905,19 @@ button:hover {
 	text-align: left;
 	transform: translateY(-50%);
 }
+.random-text {
+	position: fixed;
+	bottom: 40px;
+	left: 50%;
+	font-size: 18px;
+	transform: translateX(-50%);
+	transition: .4s;
+	cursor: pointer;
+}
+.random-text:hover {
+	color: #b105ff;
+}
+
 
 /*Overlay*/
 
@@ -1166,6 +1217,16 @@ button:hover {
 		top: 40px;
 		font-size: 16px;
 		text-align: center; 
+	}
+	.verbs__count {
+		top: 7px;
+		right: 12px;
+	}
+	.filter {
+		left: 12px;
+	}
+	.verbs-wrap > .words-btn-wrap .verbs__btn {
+		margin-top: 7px;
 	}
 }
 
