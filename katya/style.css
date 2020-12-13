@@ -1042,6 +1042,7 @@ button:disabled:hover {
 	width: 25%;
 	padding: 8px;
 	border: 1px solid #b105ff;
+	text-transform: lowercase;
 }
 .verbs-table td:last-child {
 	font-size: 15px;
