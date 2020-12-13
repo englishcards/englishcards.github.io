@@ -341,7 +341,8 @@ button:disabled:hover {
 .empty-overlay,
 .draw-grid-overlay,
 .draw-all-overlay,
-.overlay-verbs {
+.overlay-verbs,
+.overlay-verbs-table {
 	position: fixed;
 	z-index: 10;
 	top: 0;
@@ -752,7 +753,8 @@ button:disabled:hover {
 
 /*Empty state*/
 .empty-overlay-modal,
-.modal-verbs {
+.modal-verbs,
+.modal-verbs-table {
 	position: fixed;
 	z-index: 20;
 	top: 10%;
@@ -841,8 +843,8 @@ button:disabled:hover {
 .verbs-wrap {
 	position: relative;
 	width: 400px;
-	min-height: 85vh;
-	padding-bottom: 20px;
+	min-height: 80vh;
+	padding-bottom: 35px;
 	margin: 20px auto;
 	text-align: center;
 }
@@ -860,6 +862,9 @@ button:disabled:hover {
 	background-size: 20px 20px;
 	cursor: pointer;
 }
+.verbs__table {
+	left: 60px;
+}
 .filter::before {
 	position: absolute;
 	z-index: 5;
@@ -869,8 +874,10 @@ button:disabled:hover {
 	width: 12px;
 	height: 12px;
 	background: url(img_main/filter.svg) no-repeat;
-
 	transform: translateX(-50%);
+}
+.verbs__table::before {
+	background: url(img_main/table.svg) no-repeat;
 }
 .modal-verbs label {
 	position: relative;
@@ -983,8 +990,62 @@ button:disabled:hover {
 .random-text:hover {
 	color: #b105ff;
 }
-
-
+.modal-verbs-table {
+	position: relative;
+	top: 3%;	
+	width: 90%;
+	height: 95%;
+	overflow-y: auto;
+}
+.verbs-table-btn {
+	position: absolute;
+	top: 5px;
+	right: 2px;
+	width: 25px;
+	height: 25px;
+	background: rgba(177, 5, 255, 0.6);
+}
+.verbs-table-btn::before,
+.verbs-table-btn::after {
+	position: absolute;
+	content: "";
+	top: 50%;
+	left: 50%;
+	width: 3px;
+	height: 20px;
+	border-radius: 6px;
+	background-color: #fff;
+	transform: translate(-50%,-50%) rotate(-45deg);
+}
+.verbs-table-btn::after {
+	transform: translate(-50%,-50%) rotate(45deg);
+}
+.verbs-table {
+	width: 85%;
+	margin: 12px auto 30px;
+	border-collapse: collapse;
+}
+.verbs-table th {
+	width: 25%;
+	padding: 10px;
+	border: 1px solid rgba(63,63,63, 0.3);
+	color: #fff;
+	background-color: #b105ff;
+}
+.verbs-table th:first-child {
+	border-left-color: #b105ff;
+}
+.verbs-table th:last-child {
+	border-right-color: #b105ff;
+}
+.verbs-table td {
+	width: 25%;
+	padding: 8px;
+	border: 1px solid #b105ff;
+}
+.verbs-table td:last-child {
+	font-size: 15px;
+}
 /*Overlay*/
 
 .overlay-show {
@@ -1109,6 +1170,10 @@ button:disabled:hover {
 	}
 	.homework-wrap>.main-title {
 		padding: 15px 0;
+	}
+	.modal-verbs-table {
+		width: 95%;
+		padding-top: 30px;
 	}
 }	
 @media (max-width: 470px) {
@@ -1289,7 +1354,10 @@ button:disabled:hover {
 		right: 12px;
 	}
 	.filter {
-		left: 12px;
+		left: 8px;
+	}
+	.verbs__table {
+		left: 40px;
 	}
 	.verbs-wrap > .words-btn-wrap .verbs__btn {
 		margin-top: 7px;
@@ -1298,11 +1366,42 @@ button:disabled:hover {
 	.modal-verbs {
 		width: 305px;
 	}
+	/*Table verbs*/
+	.modal-verbs-table {
+		top: 0;
+		width: 100%;
+		height: 100%;
+		padding: 10px 0;
+		border: none;
+		border-radius: 0;
+	}
+	.verbs-table-btn {
+		right: 8px;
+	}
+	.verbs-table {
+		width: 98%;
+		margin-top: 30px;
+		font-size: 14px;
+	}
+	.verbs-table th,
+	.verbs-table td {
+		padding: 5px;
+	}
+	.verbs-table td:last-child {
+		font-size: 13px;
+	}
 }
 
 @media (max-width: 375px) {
 	.text-paragraph img {
 		display: block;
 		width: 98%;
+	}
+	.verbs-table th,
+	.verbs-table td {
+		padding: 2px;
+	}
+	.verbs-table td:last-child {
+		font-size: 12px;
 	}
 }	
