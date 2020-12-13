@@ -25,31 +25,19 @@ function makeExample() {
 
 	verbs = {verbsRu: [],firstForm: [],secondForm: [],thirdForm: [],}
 
-	verbsCheckbox.forEach(element => {
+	verbsCheckbox.forEach((element,arr) => {
 		element.onchange = () => {
-			if (!verbsCheckbox[0].checked && !verbsCheckbox[1].checked) verbsFilterBtn.disabled = true;
+			if (!verbsCheckbox[0].checked && !verbsCheckbox[1].checked && !verbsCheckbox[2].checked && !verbsCheckbox[3].checked) verbsFilterBtn.disabled = true;
 			else verbsFilterBtn.disabled = false;
+		}
+		if (element.checked) {
+			verbs.verbsRu = verbs.verbsRu.concat(verbsGroup[arr].verbsRu);
+			verbs.firstForm = verbs.firstForm.concat(verbsGroup[arr].firstForm);
+			verbs.secondForm = verbs.secondForm.concat(verbsGroup[arr].secondForm);
+			verbs.thirdForm = verbs.thirdForm.concat(verbsGroup[arr].thirdForm);
 		}
 	});
 
-	if (verbsCheckbox[0].checked && !verbsCheckbox[1].checked) {
-		verbs.verbsRu = verbs.verbsRu.concat(verbsGroup[0].verbsRu);
-		verbs.firstForm = verbs.firstForm.concat(verbsGroup[0].firstForm);
-		verbs.secondForm = verbs.secondForm.concat(verbsGroup[0].secondForm);
-		verbs.thirdForm = verbs.thirdForm.concat(verbsGroup[0].thirdForm);
-	}
-	else if (!verbsCheckbox[0].checked && verbsCheckbox[1].checked) {
-		verbs.verbsRu = verbs.verbsRu.concat(verbsGroup[1].verbsRu);
-		verbs.firstForm = verbs.firstForm.concat(verbsGroup[1].firstForm);
-		verbs.secondForm = verbs.secondForm.concat(verbsGroup[1].secondForm);
-		verbs.thirdForm = verbs.thirdForm.concat(verbsGroup[1].thirdForm);
-	}
-	else {
-		verbs.verbsRu = verbs.verbsRu.concat(verbsGroup[0].verbsRu,verbsGroup[1].verbsRu);
-		verbs.firstForm = verbs.firstForm.concat(verbsGroup[0].firstForm,verbsGroup[1].firstForm);
-		verbs.secondForm = verbs.secondForm.concat(verbsGroup[0].secondForm,verbsGroup[1].secondForm);
-		verbs.thirdForm = verbs.thirdForm.concat(verbsGroup[0].thirdForm,verbsGroup[1].thirdForm);
-	}
 	count = -1;
 	showNewVerbs();
 }
@@ -107,7 +95,6 @@ function checkRandom() {
 		count = -1;
 		showNewVerbs();
 	}
-	
 }
 
 function getRandom() {
@@ -121,7 +108,6 @@ const overlatModalTable = document.querySelector('.modal-verbs-table');
 document.querySelector('.verbs__table').onclick = () => showOverlay(overlatTable, overlatModalTable);
 
 document.querySelector('.verbs-table-btn').onclick =() => closeOverlay(overlatTable);
-
 
 function showTable() {
 	const table = document.querySelector('.verbs-table tbody');
