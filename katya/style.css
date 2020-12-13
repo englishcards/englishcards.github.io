@@ -1402,7 +1402,7 @@ button:disabled:hover {
 	}
 	.verbs-table th,
 	.verbs-table td {
-		padding: 2px;
+		padding: 1px;
 	}
 	.verbs-table td:last-child {
 		font-size: 12px;
