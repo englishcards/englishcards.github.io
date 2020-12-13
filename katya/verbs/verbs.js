@@ -10,7 +10,6 @@ const verbsRandom = document.querySelector('.verbs__random');
 
 let count = -1;
 makeExample();
-showNewVerbs();
 
 const overlay = document.querySelector('.overlay-verbs');
 const modal = document.querySelector('.modal-verbs');
@@ -53,7 +52,6 @@ function makeExample() {
 	}
 	count = -1;
 	showNewVerbs();
-	
 }
 
 verbsBtn[0].onclick = checkTotal;
@@ -88,6 +86,7 @@ function showNewVerbs() {
 }
 
 function defaultAnswer(index) {
+	verbsInput[0].focus();
 	verbsSign[index].hidden = true;
 	verbsCorrect[index].style.display = 'none';
 	verbsInput[index].value = '';
@@ -116,6 +115,30 @@ function getRandom() {
 	return random;
 }
 
+// Show Table
+const overlatTable = document.querySelector('.overlay-verbs-table');
+const overlatModalTable = document.querySelector('.modal-verbs-table');
+document.querySelector('.verbs__table').onclick = () => showOverlay(overlatTable, overlatModalTable);
+
+document.querySelector('.verbs-table-btn').onclick =() => closeOverlay(overlatTable);
+
+
+function showTable() {
+	const table = document.querySelector('.verbs-table tbody');
+	for(let i = 0; i < verbs.verbsRu.length; i++) {
+		let row = document.createElement('tr');
+		table.appendChild(row);
+		for (let j = 0; j < 4; j++) {
+			let data = document.createElement('td');
+			row.appendChild(data);
+			if (j == 0) data.innerText = verbs.firstForm[i];
+			if (j == 1) data.innerText = verbs.secondForm[i];
+			if (j == 2) data.innerText = verbs.thirdForm[i];
+			if (j == 3) data.innerText = verbs.verbsRu[i];
+		}
+	}
+}
+showTable();
 
 // Overlay
 function showOverlay(overlay, modal) {

@@ -25,6 +25,7 @@
 		<div class="container">
 			<span class="count-question verbs__count"></span>
 			<span class="filter verbs__filter"></span>
+			<span class="filter verbs__table"></span>
 			<div class="verbs-wrap">
 				<b class="verbs__example"></b>
 				<div class="verbs-answer-wrap">
@@ -50,7 +51,7 @@
 				<div class="overlay overlay-verbs hidden">
 					<div class="modal-verbs">
 						<label>
-							<input class="verbs__checkbox" type="checkbox" checked>
+							<input class="verbs__checkbox" type="checkbox" checked autofocus>
 							<span class="verbs__checkbox_sign"></span>
 							<span>A - E</span>
 						</label>
@@ -63,6 +64,19 @@
 							<button class="filter-verbs__btn">Apply</button>
 							<button class="filter-verbs__btn_cancel">Cancel</button>
 						</div>
+					</div>
+				</div>
+				<div class="overlay overlay-verbs-table hidden">
+					<div class="modal-verbs-table">
+						<button class="verbs-table-btn"></button>
+						<table class="verbs-table">
+							<tr>
+								<th>I form</th>
+								<th>II form</th>
+								<th>III form</th>
+								<th>Translation</th>
+							</tr>
+						</table>
 					</div>
 				</div>
 			</div>
