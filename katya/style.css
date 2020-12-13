@@ -901,6 +901,8 @@ button:disabled:hover {
 	left: 15px;
 	width: 15px;
 	height: 15px;
+	border: 1px solid #b105ff;
+    border-radius: 2px;
 	background: url(img_main/square.svg) no-repeat; 
 	transform: translateY(-50%);
 }
