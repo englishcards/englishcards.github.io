@@ -430,6 +430,9 @@ button:disabled:hover {
 	background: url(img_main/grid-inactive.svg) center center no-repeat;
 	cursor: pointer;
 }
+.words-grid__btn:disabled {
+	background: url(img_main/grid-inactive.svg) center center no-repeat;
+}
 .words-grid__btn:hover {
 	box-shadow: none;
 }
