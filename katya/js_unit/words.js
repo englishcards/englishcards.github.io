@@ -7,9 +7,9 @@ const wordsAll = [
 },
 {
 	unit: 'Unit-2',
-	wordsEng: ['Laugh',`Start`,`Walk`,`Play tennis`,`Dance`,`Cry`,`Talk`],
-	wordsRu: ['Смеяться',`Начинать`,`Идти пешком`,`Играть в теннис`,`Танцевать`,`Плакать`,`Говорить`],
-	wordsSound: [`læf`,`stɑːrt`,`wɔːk`,`pleɪ ˈtenɪs`,`dæns`,`kraɪ`,`tɔːk`],
+	wordsEng: ['Laugh',`Start`,`Walk`,`Play tennis`,`Dance`,`Cry`,`Talk`,`Smile`,`Study`,`Call`,`Cook`,`Work`,`Watch`,`Went`,`Saw`,`Did`,`Wrote`,`Ate`,`Read`, `Slept`],
+	wordsRu: ['Смеяться',`Начинать`,`Идти пешком`,`Играть в теннис`,`Танцевать`,`Плакать`,`Говорить`,`Улыбаться`,`Учиться`,`Звонить`,`Готовить`,`Работать`,`Смотреть`,`Създил`,`Видел`,`Делал`,`Писал`,`Ел`,`Читал`,`Спал`],
+	wordsSound: [`læf`,`stɑːrt`,`wɔːk`,`pleɪ ˈtenɪs`,`dæns`,`kraɪ`,`tɔːk`,`smaɪl`,`ˈstʌdɪ`,`kɔːl`,`kʊk`,`wɜːrk`,`wɑːtʃ`,`went`,`sɔː`,`dɪd`,`rəʊt`,`et`,`red`,`slept`],
 },
 
 
