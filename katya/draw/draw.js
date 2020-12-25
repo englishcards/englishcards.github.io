@@ -82,7 +82,7 @@ drawTitle.onclick = () => {
 
 function openAll() {
 	allWrap.classList.remove('grid-new');
-	for (let i = 0; i < 1; i++) {
+	for (let i = 0; i < 3; i++) {
 		const imgAllWrap = document.createElement('div');
 		allWrap.appendChild(imgAllWrap);
 		imgAllWrap.classList.add('draw-all__img-wrap');
