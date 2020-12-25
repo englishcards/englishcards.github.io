@@ -5,7 +5,7 @@ if (window.location.href.includes('unit.html')) showSingleUnit();
 
 function showAllUnits() {
 	const unitWrap = document.querySelector('.unit-wrap');
-	for (let i = 1; i <= 2; i++) {
+	for (let i = 1; i <= 3; i++) {
 		const unit = document.createElement('a');
 		unit.classList.add('unit');
 		unitWrap.appendChild(unit);
