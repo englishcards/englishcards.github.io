@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+	<title>Регистрация</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<link rel="shortcut icon" href="../img/favicon.ico" type="image/x-icon">
+	<link href="https://fonts.googleapis.com/css?family=Raleway:400,400i,600,700&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+	<header id="header-main">
+		<div class="header">
+			<div class="container">
+				<a class="signup-header-link" href="../web.php" class="button">Главная</a>
+				<a href="../web.php" class="header-logo">
+					<img class="header-logo__img" src="../img/html-logo.svg" alt="Лого html">
+					<img class="header-logo__img" src="../img/css-logo.svg" alt="Лого css">
+					<h1 class="header-logo__title"><span class="hidden">HTML и CSS</span>Tutorial</h1>
+				</a>
+				<p class="header-text">Для регистрации на сайте заполните обязательные поля формы.<br>После этого нажмите на кнопку "Зарегистрироваться"</p>
+			</div>
+		</div>
+	</header>
+	<main>
+		<div class="main">
+			<div class="container">
+				<div class="main-wrap">
+					<div class="content signup-content">
+						<div class="signup-title-wrap">
+							<h2 class="main-title">Регистрация</h2>
+							<div class="signup-tooltip-info">
+								<svg class="signup-svg" height="48" viewBox="0 0 48 48" width="48" xmlns="http://www.w3.org/2000/svg"><path d="M0 0h48v48H0z" fill="none"/><path d="M22 34h4V22h-4v12zm2-30C12.95 4 4 12.95 4 24s8.95 20 20 20 20-8.95 20-20S35.05 4 24 4zm0 36c-8.82 0-16-7.18-16-16S15.18 8 24 8s16 7.18 16 16-7.18 16-16 16zm-2-22h4v-4h-4v4z"/></svg>
+								<div class="signup-tooltip-info-wrap">
+									<h3>Max длина полей</h3>
+									<ul>
+										<li>Имя: 20</li>
+										<li>Фамилия: 20</li>
+										<li>Email: 45</li>
+										<li>Пароль: 8</li>
+									</ul>
+								</div>	
+							</div>
+						</div>
+						<p class="login-content__text">Уже есть аккаунт? <a href="../login/login.html" class="login-content__signup">Войти</a></p>
+						<form class="signup-form">
+							<label>Имя:<sup>*</sup></label>
+							<input autofocus maxlength="20"><span class="error-message"></span>
+							<label>Фамилия:</label>
+							<input maxlength="20" name="unnecessary"><span id="error-message_unnecessary" class="error-message"></span>
+							<label>Email:<sup>*</sup></label>
+							<input maxlength="45"><span class="error-message"></span>
+							<label>Пароль:<sup>*</sup><span class="signup-tooltip-pass">
+								<svg class="signup-password-svg" height="48" viewBox="0 0 48 48" width="48" xmlns="http://www.w3.org/2000/svg"><path d="M0 0h48v48H0z" fill="none"/><path d="M22 34h4V22h-4v12zm2-30C12.95 4 4 12.95 4 24s8.95 20 20 20 20-8.95 20-20S35.05 4 24 4zm0 36c-8.82 0-16-7.18-16-16S15.18 8 24 8s16 7.18 16 16-7.18 16-16 16zm-2-22h4v-4h-4v4z"/></svg>
+								<i class="signup-tooltip-pass__text">Пожалуйста, не используйте пароли других Ваших аккаунтов</i></span>
+							</label>
+							<input type="password" maxlength="8"><span class="error-message"></span>
+							<label>Повторите пароль:<sup>*</sup></label>
+							<input type="password" name="signup_confirm" maxlength="8"><span class="error-message"></span>
+							<label>Код регистрации:<sup>*</sup></label>
+							<input type="text"><span class="error-message"></span>
+							<p class="signup-necessary"><sup>*</sup>Обязательные поля</p>
+							<p class="signup-approve">При регистрации Вы даёте согласие на хранение этой информации в базе данных</p>
+							<label class="signup-remember-data">
+								<input class="signup__remember" type="checkbox" checked><span class="signup-remember_sign"></span>
+								<span class="signup-remember-text">Запомнить меня</span>
+							</label>
+							<button class="signup-form__btn">Зарегистрироваться</button>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</main>
+	<script src="signup.js"></script>
+</body>
+</html>
