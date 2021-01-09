@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+	<title>Вход в аккаунт</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<link rel="shortcut icon" href="../img/favicon.ico" type="image/x-icon">
+	<link href="https://fonts.googleapis.com/css?family=Raleway:400,400i,600,700&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+	<header id="header-main">
+		<div class="header">
+			<div class="container">
+				<a class="signup-header-link" href="../sql.php" class="button">Главная</a>
+				<a href="../sql.php" class="header-logo">
+					<img class="header-logo__img" src="../img/logo.svg" alt="Лого MySql">
+					<h1 class="header-logo__title"><span class="hidden">MySQL</span>Tutorial</h1>
+				</a>
+				<p class="header-text">Для входа в аккаунт введите email и пароль<br>После этого нажмите на кнопку "Войти"</p>
+			</div>
+		</div>
+	</header>
+	<main>
+		<div class="main">
+			<div class="container">
+				<div class="main-wrap main-login">
+					<div class="content login-content">
+						<h2 class="main-title">Вход в аккаунт</h2>
+						<p class="login-content__text">У Вас ещё нет аккаунта? <a href="../signup/signup.html" class="login-content__signup">Зарегистрироваться</a></p>
+						<form class="login-form">
+							<b class="login-wrong-credentials">Пароль или email введён неверно</b>
+							<label>Email:</label><input maxlength="45"><span class="error-message"></span>
+							<label>Пароль:</label><input type="password" maxlength="8"><span class="error-message"></span>
+							<div class="login-remember-wrap">
+								<label class="signup-remember-data">
+									<input class="signup__remember" type="checkbox" checked><span class="signup-remember_sign"></span>
+									<span class="signup-remember-text">Запомнить меня</span>
+								</label>
+								<span class="login-restore-link">Забыли пароль?</span>
+							</div>	
+							<button class="login-form__btn">Войти</button>
+						</form>
+					</div>
+				</div>		
+			</div>		
+		</div>
+	</main>
+	<div class="overlay-forget">
+		<div class="modal-forget">
+			<p class="modal-forget__text">Если Вы обучались у меня и забыли пароль или email, пришлите мне на почту (на которую отправлялись ДЗ) информацию ниже. Я&nbsp;вышлю Вам код для повторной регистрации.</p>
+			<ul class="modal-forget__list">
+				<li>Имя</li>
+				<li>Фамилия</li>
+				<li>Ваш email (с которого отправлялись ДЗ)</li>
+				<li>Дата старта обучения (приблизительно)</li>
+			</ul>
+			<button class="login-form__btn modal-forget__btn">Закрыть</button>
+		</div>
+	</div>
+	<script src="login.js"></script>
+</body>
+</html>
